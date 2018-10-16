@@ -1,4 +1,4 @@
-# vue-product-spinner (Under Active Development)
+# Vue Product Spinner (Under Active Development)
 # STILL UNDER DEVELOPMENT! DO NOT USE IN PRODUCTION!
 
 Bootstrapped with Vue Cli. No regrets.
@@ -20,13 +20,27 @@ yarn add vue-product-spinner
 # Usage
 
 ```javascript
-import VueProductSpinner from 'vue-product-spinner'
-
 <template>
-  <vue-product-spinner :imgs="['1.jpg', '2.jpg']" />
+  <VueProductSpinner :imgs="imgs" />
 </template>
+
+<script>
+  import VueProductSpinner from 'vue-product-spinner'
+
+  export default {
+    data() {
+      return {
+        imgs: [
+          'img1.jpg',
+          'img2.jpg',
+          'img3.jpg'
+        ]
+      }
+    }
+  }
+</script>
 
 ```
 
 # License
-[MIT](/LICENSE:md)
+[MIT](/LICENSE.md)
