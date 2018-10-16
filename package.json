@@ -1,12 +1,31 @@
 {
   "name": "vue-product-spinner",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1-dev",
+  "private": false,
+  "main": "./src/components/VueProductSpinner.vue",
+  "author": {
+    "name": "Michele Riva",
+    "email": "ciao@micheleriva.it",
+    "url": "https://miiit.ch"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "spinner",
+    "carousel",
+    "3d",
+    "product"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micheleriva/vue-product-spinner"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "build-bundle": "vue-cli-service build --target lib --name vue-product-spinner ./src/components/index.js"
   },
   "dependencies": {
     "vue": "^2.5.17"
@@ -25,5 +44,9 @@
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
-  }
+  },
+  "files": [
+    "dist/vue-product-spinner.umd.js",
+    "dist/vue-product-spinner.common.js"
+  ]
 }
