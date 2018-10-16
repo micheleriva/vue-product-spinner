@@ -1,4 +1,9 @@
+#!/usr/bin/env sh
+
+
 yarn build
-find ./docs -type f -not -name 'VueProductSpinner.gif' -delete
-mv ./dist/* ./docs
-yarn build-bundle
+cd dist
+git add -A
+git commit -m 'deploy'
+git push -f git@github.com:micheleriva/vue-product-spinner.git master:gh-pages
+cd -
