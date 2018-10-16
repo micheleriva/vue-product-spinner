@@ -1,6 +1,9 @@
 .DS_Store
 node_modules
 /dist
+yarn.lock
+.vscode
+.idea
 
 # local env files
 .env.local

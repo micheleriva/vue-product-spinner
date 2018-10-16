@@ -12,6 +12,8 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-plugin-unit-jest": "^3.0.0",
@@ -20,6 +22,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
     "node-sass": "^4.9.0",
+    "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
   }
