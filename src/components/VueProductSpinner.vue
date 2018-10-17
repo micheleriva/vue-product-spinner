@@ -8,6 +8,14 @@
   )
 
     img(:src="currentImg", draggable="false")
+    input(
+      type="range"
+      min="1"
+      max="imgsNum"
+      value="currentImg"
+      :class="rangeClass"
+      v-if="showRange"
+    )
 
 </template>
 
@@ -16,7 +24,9 @@ export default {
   name: 'VueProductSpinner',
   
   props: {
-    imgs: Array
+    imgs: Array,
+    showRange: Boolean,
+    rangeClass: String
   },
 
   data: function() {
@@ -55,9 +65,7 @@ export default {
 
     handleMouseMove(event) {
       if (!this.capture) return
-
       this.drag.x = event.x
-      this.drag.y = event.y
     }
 
   }

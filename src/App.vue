@@ -1,7 +1,11 @@
 <template lang="pug">
   #app(:style="{backgroundColor: bgColor}")
     GitHubRibbon
-    VueProductSpinner(:imgs="images" v-if="imagesAreReady")
+    VueProductSpinner(
+      :imgs="images"
+      :showRange="true"
+      rangeClass="custom-range"
+      v-if="imagesAreReady")
     .spinner-cont(v-else)
       Spinner
     .color-selection
@@ -125,6 +129,35 @@ export default {
 </script>
 
 <style lang="scss">
+
+  .custom-range {
+    position: fixed;
+    bottom: 15em;
+
+    appearance: none;
+    width: 50%; 
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    border-radius: 10px;
+    transition: opacity .2s;
+  
+    &:hover {
+      opacity: 1;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      background: rgb(99, 111, 128);
+      cursor: pointer;
+    }
+  }
+
   body, #app {
     margin: 0;
     padding: 0;
