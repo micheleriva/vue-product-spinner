@@ -1,5 +1,8 @@
 # 🚗 Vue Product Spinner (Under Active Development, still buggy)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Vue Version](https://img.shields.io/badge/vue-2.5.17-green.svg)](https://vuejs.org/)
+
 A 3D product spinner with no dependencies built for Vue.js
 
 # Demo
