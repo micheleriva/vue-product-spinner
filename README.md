@@ -1,7 +1,10 @@
-# Vue Product Spinner (Under Active Development)
-# STILL UNDER DEVELOPMENT! DO NOT USE IN PRODUCTION!
+# 🚗 Vue Product Spinner (Under Active Development, still buggy)
 
-Bootstrapped with Vue Cli. No regrets.
+A 3D product spinner with no dependencies built for Vue.js
+
+# Demo
+
+Live demo [here](https://micheleriva.github.io/vue-product-spinner/)
 
 ![Vue Product Spinner](/docs/VueProductSpinner.gif)
 
