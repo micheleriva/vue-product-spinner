@@ -173,11 +173,13 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: auto;
       max-width: 100vw;
+      width: 1000px;
       min-height: 100vh;
 
       img {
-        max-width: 100vw;
+        max-width: 100%;
       }
     }
 

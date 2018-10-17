@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .vue-product-spinner#mainDiv(
+  #mainDiv.vue-product-spinner(
     ref="mainDiv"
     @mousedown="handleMouseDown"
     @mouseup="handleMouseUp"
@@ -26,15 +26,16 @@
 
 <script>
 export default {
+
   name: 'VueProductSpinner',
 
   props: {
-    imgs: Array,
-    showRange: Boolean,
+    imgs:       Array,
+    showRange:  Boolean,
     rangeClass: String
   },
 
-  data: function() {
+  data() {
     return {
       capture: {
         enabled: true,
@@ -46,13 +47,19 @@ export default {
       bounds: {
         width:  0,
       },
-      imgsNum: this.imgs.length,
-      currentImg: this.imgs[0]
+      imgsNum:       this.imgs.length,
+      currentImg:    this.imgs[0],
     }
   },
 
   mounted() {
     this.bounds.width  = this.$refs.mainDiv.clientWidth
+  },
+
+  computed: {
+    pixelPerFrame() {
+      return Math.floor(this.bounds.width / (this.imgsNum / 2))
+    }
   },
 
   methods: {
@@ -74,18 +81,18 @@ export default {
       this.computeCurrentImage()
     },
 
-    handleTouchStart() {
-      this.capture       = true
-      this.capture.start = event.x
+    handleTouchStart(event) {
+      this.capture.enabled = true
+      this.capture.start   = event.x
       this.computeCurrentImage()
     },
 
     handleTouchEnd() {
-      this.capture = false
+      this.capture.enabled = false
     },
 
     handleTouchMove(event) {
-      if (!this.capture) {
+      if (!this.capture.enabled) {
         return
       }
       this.drag.x = event.touches[0].clientX
@@ -98,6 +105,7 @@ export default {
       const index        = Math.floor(limit / (this.bounds.width / this.drag.x))
       console.log(range)
       this.currentImg = this.imgs[index]
+
     }
 
   }
