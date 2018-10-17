@@ -5,6 +5,9 @@
     @mousedown="handleMouseDown"
     @mouseup="handleMouseUp"
     @mousemove="handleMouseMove"
+    @touchstart="handleTouchStart"
+    @touchmove="handleTouchMove"
+    @tuochend="handleTouchEnd"
   )
 
     img(:src="currentImg", draggable="false")
@@ -22,7 +25,7 @@
 <script>
 export default {
   name: 'VueProductSpinner',
-  
+
   props: {
     imgs: Array,
     showRange: Boolean,
@@ -48,7 +51,7 @@ export default {
 
   computed: {
     currentImg() {
-      const  index = parseInt(this.imgsNum / (this.bounds.width / this.drag.x)) 
+      const  index = parseInt(this.imgsNum / (this.bounds.width / this.drag.x))
       return this.imgs[index]
     }
   },
@@ -66,8 +69,20 @@ export default {
     handleMouseMove(event) {
       if (!this.capture) return
       this.drag.x = event.x
-    }
+    },
 
+    handleTouchStart() {
+      this.capture = true
+    },
+
+    handleTouchEnd() {
+      this.capture = false
+    },
+
+    handleTouchMove(event) {
+      if (!this.capture) return
+      this.drag.x = event.touches[0].clientX
+    }
   }
 }
 </script>
