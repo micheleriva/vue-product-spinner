@@ -8,6 +8,11 @@
       v-if="imagesAreReady")
     .spinner-cont(v-else)
       Spinner
+    .car-selector
+      .car(
+        v-for="car in availableCars"
+        @click="handleCarSelection(car)"
+      ) {{ car }}
     .color-selection
       .color(v-for="color in colors", 
             :style="{backgroundColor: color}"
@@ -21,6 +26,7 @@
 import VueProductSpinner from './components/VueProductSpinner.vue'
 import GitHubRibbon      from './components/GitHubRibbon.vue'
 import Spinner           from './components/Spinner.vue'
+import Cars              from './carImgs'
 
 export default {
   name: 'app',
@@ -28,68 +34,10 @@ export default {
   data: function() {
     return {
       imagesAreReady: false,
-      bgColor: '#319289',
-      colors: [
-        '#CED2D8',
-        '#303337',
-        '#A46C00',
-        '#A7B8CE',
-        '#319289',
-        '#3D4856'
-      ],
-      imgs: [
-        '/imgs/1.png',
-        '/imgs/2.png',
-        '/imgs/3.png',
-        '/imgs/4.png',
-        '/imgs/5.png',
-        '/imgs/6.png',
-        '/imgs/7.png',
-        '/imgs/8.png',
-        '/imgs/9.png',
-        '/imgs/10.png',
-        '/imgs/11.png',
-        '/imgs/12.png',
-        '/imgs/13.png',
-        '/imgs/14.png',
-        '/imgs/15.png',
-        '/imgs/16.png',
-        '/imgs/17.png',
-        '/imgs/18.png',
-        '/imgs/19.png',
-        '/imgs/20.png',
-        '/imgs/21.png',
-        '/imgs/22.png',
-        '/imgs/23.png',
-        '/imgs/24.png',
-        '/imgs/25.png',
-        '/imgs/26.png',
-        '/imgs/27.png',
-        '/imgs/28.png',
-        '/imgs/29.png',
-        '/imgs/30.png',
-        '/imgs/31.png',
-        '/imgs/32.png',
-        '/imgs/33.png',
-        '/imgs/34.png',
-        '/imgs/35.png',
-        '/imgs/36.png',
-        '/imgs/37.png',
-        '/imgs/38.png',
-        '/imgs/39.png',
-        '/imgs/40.png',
-        '/imgs/41.png',
-        '/imgs/42.png',
-        '/imgs/43.png',
-        '/imgs/44.png',
-        '/imgs/45.png',
-        '/imgs/46.png',
-        '/imgs/47.png',
-        '/imgs/48.png',
-        '/imgs/49.png',
-        '/imgs/50.png',
-        '/imgs/51.png',
-      ]
+      bgColor:        Cars.honda.colors[0],
+      colors:         Cars.honda.colors,
+      imgs:           Cars.honda.imgs,
+      availableCars:  Object.keys(Cars)
     }
   },
 
@@ -98,6 +46,7 @@ export default {
   },
 
   methods: {
+
     changeBgColor(color) {
       this.bgColor = color
     },
@@ -110,12 +59,18 @@ export default {
       })
 
       this.imagesAreReady = true
+    },
+
+    handleCarSelection(carName) {
+      this.bgColor = Cars[carName].colors[0]
+      this.colors  = Cars[carName].colors
+      this.imgs    = Cars[carName].imgs
     }
   },
 
   computed: {
     images() {
-      const prefix = 'https://micheleriva.github.io/vue-product-spinner'
+      const prefix = 'https://micheleriva.github.io/vue-product-spinner/'
       return window.location.pathname === '/' ? this.imgs : this.imgs.map(img => prefix+img)
     }
   },
@@ -130,6 +85,32 @@ export default {
 
 <style lang="scss">
 
+  .car-selector {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5em;
+    width: 100%;
+
+    .car {
+      margin-left: 2em;
+      margin-right: 2em;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: capitalize;
+      background: #2196F3;
+      padding: 1em;
+      border-radius: 12px;
+      color: #f5f5f5;
+      cursor: pointer;
+      transition: ease 0.5s;
+
+      &:hover {
+        transform: scale(1.2)
+      }
+    }
+  }
+
   .custom-range {
     position: fixed;
     bottom: 15em;
@@ -140,7 +121,7 @@ export default {
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: opacity .2s;
   
     &:hover {
@@ -150,9 +131,9 @@ export default {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 25px;
-      height: 25px;
-      border-radius: 100%;
+      width: 20px;
+      height: 50px;
+      border-radius: 15px;
       background: rgb(99, 111, 128);
       cursor: pointer;
     }
@@ -179,6 +160,7 @@ export default {
       min-height: 100vh;
 
       img {
+        width: 600px;
         max-width: 100%;
       }
     }
@@ -197,6 +179,11 @@ export default {
         border-radius: 100%;
         border: white solid 5px;
         cursor: pointer;
+        transition: ease 0.5s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  #mainDiv.vue-product-spinner(
+  #VueProductSpinnerImgRef.vue-product-spinner(
     ref="mainDiv"
     @touchstart="handleTouchStart"
     @touchmove="handleTouchMove"
@@ -19,7 +19,7 @@
       min="1"
       :max="imgsNum"
       step="1"
-      :value="currentImg"
+      :value="currentIndex"
       :class="rangeClass"
       @input="handleRange"
       v-if="showRange"
@@ -50,7 +50,6 @@ export default {
       bounds: {
         width:  0,
       },
-      imgsNum:      this.imgs.length,
       currentIndex: 0,
       lastIndex:    0
     }
@@ -61,6 +60,9 @@ export default {
   },
 
   computed: {
+    imgsNum() {
+      return this.imgs.length
+    },
     pixelPerFrame() {
       return Math.floor(this.bounds.width / (this.imgsNum / 2))
     },
@@ -113,7 +115,7 @@ export default {
       
       console.log(this.capture.start - this.drag.x)
     
-      this.currentIndex = index
+      this.currentIndex = index >= 52 ? 51 : index
 
     },
 
