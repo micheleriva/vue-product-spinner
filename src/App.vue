@@ -1,7 +1,7 @@
 <template lang="pug">
   #app(:style="{backgroundColor: bgColor}")
     GitHubRibbon
-    VueProductSpinner(:imgs="imgs")
+    VueProductSpinner(:imgs="images")
     .color-selection
       .color(v-for="color in colors", 
             :style="{backgroundColor: color}"
@@ -88,6 +88,13 @@ export default {
   methods: {
     changeBgColor(color) {
       this.bgColor = color
+    }
+  },
+
+  computed: {
+    images() {
+      const prefix = 'https://micheleriva.github.io/vue-product-spinner'
+      return window.location.pathname === '/' ? this.imgs : this.imgs.map(img => prefix+img)
     }
   },
 
