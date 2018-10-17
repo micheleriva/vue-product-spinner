@@ -2,23 +2,26 @@
 
   #mainDiv.vue-product-spinner(
     ref="mainDiv"
-    @mousedown="handleMouseDown"
-    @mouseup="handleMouseUp"
-    @mousemove="handleMouseMove"
     @touchstart="handleTouchStart"
     @touchmove="handleTouchMove"
     @tuochend="handleTouchEnd"
   )
 
-    img(:src="currentImg", draggable="false")
+    img(
+      :src="currentImg", 
+      draggable="false"
+      @mousedown="handleMouseDown"
+      @mouseup="handleMouseUp"
+      @mousemove="handleMouseMove"
+    )
     input(
       type="range"
       min="1"
-      max="imgsNum"
+      :max="imgsNum"
       step="1"
       :value="currentImg"
       :class="rangeClass"
-      @input="handleRange()"
+      @input="handleRange"
       v-if="showRange"
     )
 
@@ -38,7 +41,7 @@ export default {
   data() {
     return {
       capture: {
-        enabled: true,
+        enabled: false,
         start:   0,
       },
       drag: {
@@ -47,8 +50,9 @@ export default {
       bounds: {
         width:  0,
       },
-      imgsNum:       this.imgs.length,
-      currentImg:    this.imgs[0],
+      imgsNum:      this.imgs.length,
+      currentIndex: 0,
+      lastIndex:    0
     }
   },
 
@@ -59,6 +63,9 @@ export default {
   computed: {
     pixelPerFrame() {
       return Math.floor(this.bounds.width / (this.imgsNum / 2))
+    },
+    currentImg() {
+      return this.imgs[this.currentIndex]
     }
   },
 
@@ -71,6 +78,7 @@ export default {
 
     handleMouseUp() {
       this.capture.enabled = false
+      this.lastIndex       = this.currentIndex
     },
 
     handleMouseMove(event) {
@@ -100,12 +108,17 @@ export default {
 
     computeCurrentImage() {
       const limit        = this.imgsNum
-      const currentIndex = this.imgs.indexOf(this.currentImg)
       const range        = Math.floor(this.bounds.width / (this.capture.start - this.drag.x))
       const index        = Math.floor(limit / (this.bounds.width / this.drag.x))
-      console.log(range)
-      this.currentImg = this.imgs[index]
+      
+      console.log(this.capture.start - this.drag.x)
+    
+      this.currentIndex = index
 
+    },
+
+    handleRange(ev) {
+      return this.currentIndex = ev.target.value - 1
     }
 
   }
