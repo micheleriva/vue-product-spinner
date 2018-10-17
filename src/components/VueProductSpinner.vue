@@ -75,8 +75,20 @@ export default {
     },
 
     handleTouchStart() {
-      this.capture = true
+      this.capture       = true
+      this.capture.start = event.x
       this.computeCurrentImage()
+    },
+
+    handleTouchEnd() {
+      this.capture = false
+    },
+
+    handleTouchMove(event) {
+      if (!this.capture) {
+        return
+      }
+      this.drag.x = event.touches[0].clientX
     },
 
     computeCurrentImage() {
@@ -88,18 +100,9 @@ export default {
       this.currentImg = this.imgs[index]
     }
 
-    handleTouchEnd() {
-      this.capture = false
-    },
-
-    handleTouchMove(event) {
-      if (!this.capture) {
-        return
-      }
-      this.drag.x = event.touches[0].clientX
-    }
   }
 }
+
 </script>
 
 <style scoped lang="scss">
