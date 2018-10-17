@@ -1,6 +1,6 @@
 {
   "name": "vue-product-spinner",
-  "version": "0.0.3-dev",
+  "version": "0.0.5-dev",
   "private": false,
   "main": "./src/components/VueProductSpinner.vue",
   "author": {
@@ -8,6 +8,10 @@
     "email": "ciao@micheleriva.it",
     "url": "https://miiit.ch"
   },
+  "bugs": {
+    "url": "https://github.com/micheleriva/vue-product-spinner/issues"
+  },
+  "license": "MIT",
   "keywords": [
     "vue",
     "vuejs",

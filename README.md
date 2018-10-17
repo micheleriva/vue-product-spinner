@@ -53,7 +53,7 @@ yarn add vue-product-spinner
 
 - [ ] Solve basic bugs
 - [x] Add slider support
-- [ ] Add touchscreen support
+- [ ] [Add touchscreen support](#1)
 - [ ] Add "mouse move" support
 
 # License
