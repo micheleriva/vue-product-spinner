@@ -19,7 +19,7 @@ yarn add vue-product-spinner
 
 # Usage
 
-```javascript
+```html
 <template>
   <VueProductSpinner :imgs="imgs" />
 </template>
@@ -36,6 +36,10 @@ yarn add vue-product-spinner
           'img3.jpg'
         ]
       }
+    },
+
+    components: {
+      VueProductSpinner
     }
   }
 </script>

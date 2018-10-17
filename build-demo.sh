@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 yarn build
 cd dist
 git add -A

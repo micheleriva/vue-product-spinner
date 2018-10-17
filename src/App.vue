@@ -1,5 +1,6 @@
 <template lang="pug">
   #app(:style="{backgroundColor: bgColor}")
+    GitHubRibbon
     VueProductSpinner(:imgs="imgs")
     .color-selection
       .color(v-for="color in colors", 
@@ -10,7 +11,9 @@
 </template>
 
 <script>
+
 import VueProductSpinner from './components/VueProductSpinner.vue'
+import GitHubRibbon      from './components/GitHubRibbon.vue'
 
 export default {
   name: 'app',
@@ -89,7 +92,8 @@ export default {
   },
 
   components: {
-    VueProductSpinner
+    VueProductSpinner,
+    GitHubRibbon
   }
 }
 </script>
@@ -120,6 +124,7 @@ export default {
         height: 50px;
         border-radius: 100%;
         border: white solid 5px;
+        cursor: pointer;
       }
     }
   }
