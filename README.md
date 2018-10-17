@@ -1,5 +1,6 @@
 # 🚗 Vue Product Spinner (Under Active Development, still buggy)
 
+[![Build Status](https://travis-ci.org/micheleriva/vue-product-spinner.svg?branch=master)](https://travis-ci.org/micheleriva/vue-product-spinner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Vue Version](https://img.shields.io/badge/vue-2.5.17-green.svg)](https://vuejs.org/)
 
