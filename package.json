@@ -8,6 +8,13 @@
     "email": "ciao@micheleriva.it",
     "url": "https://miiit.ch"
   },
+  "contributors": [
+    {
+      "name": "Sid Bentifraouine",
+      "email": "sidbentifraouine@gmail.com",
+      "url": "https://twitter.com/sbentifraouine"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/micheleriva/vue-product-spinner/issues"
   },
