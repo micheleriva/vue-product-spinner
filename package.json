@@ -1,6 +1,6 @@
 {
   "name": "vue-product-spinner",
-  "version": "0.0.5-dev",
+  "version": "0.0.6-dev",
   "private": false,
   "main": "./src/components/VueProductSpinner.vue",
   "author": {
