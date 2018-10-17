@@ -49,5 +49,11 @@ yarn add vue-product-spinner
 
 ```
 
+# Roadmap
+
+- Solve basic bugs
+- Add touchscreen support
+- Add "mouse move" support
+
 # License
 [MIT](/LICENSE.md)

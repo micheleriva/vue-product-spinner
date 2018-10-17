@@ -1,7 +1,9 @@
 <template lang="pug">
   #app(:style="{backgroundColor: bgColor}")
     GitHubRibbon
-    VueProductSpinner(:imgs="images")
+    VueProductSpinner(:imgs="images" v-if="imagesAreReady")
+    .spinner-cont(v-else)
+      Spinner
     .color-selection
       .color(v-for="color in colors", 
             :style="{backgroundColor: color}"
@@ -14,13 +16,15 @@
 
 import VueProductSpinner from './components/VueProductSpinner.vue'
 import GitHubRibbon      from './components/GitHubRibbon.vue'
+import Spinner           from './components/Spinner.vue'
 
 export default {
   name: 'app',
 
   data: function() {
     return {
-      bgColor: '#CED2D8',
+      imagesAreReady: false,
+      bgColor: '#319289',
       colors: [
         '#CED2D8',
         '#303337',
@@ -85,9 +89,23 @@ export default {
     }
   },
 
+  mounted() {
+    this.preloadImages()
+  },
+
   methods: {
     changeBgColor(color) {
       this.bgColor = color
+    },
+
+    preloadImages() {
+
+      this.images.forEach(element => {
+        const img = new Image()
+        img.src = element
+      })
+
+      this.imagesAreReady = true
     }
   },
 
@@ -100,7 +118,8 @@ export default {
 
   components: {
     VueProductSpinner,
-    GitHubRibbon
+    GitHubRibbon,
+    Spinner
   }
 }
 </script>
@@ -110,12 +129,23 @@ export default {
     margin: 0;
     padding: 0;
 
+    .spinner-cont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
     .vue-product-spinner {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
+      max-width: 100vw;
       min-height: 100vh;
+
+      img {
+        max-width: 100vw;
+      }
     }
 
     .color-selection {

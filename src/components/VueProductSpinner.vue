@@ -24,11 +24,9 @@ export default {
       capture: false,
       drag: {
         x: 0,
-        y: 0
       },
       bounds: {
         width:  0,
-        height: 0
       },
       imgsNum: this.imgs.length,
     }
@@ -36,7 +34,6 @@ export default {
 
   mounted() {
     this.bounds.width  = this.$refs.mainDiv.clientWidth
-    this.bounds.height = this.$refs.mainDiv.clientHeight
   },
 
   computed: {
@@ -70,5 +67,6 @@ export default {
 <style scoped lang="scss">
   .vue-product-spinner {
     user-select: none;
+    cursor: default;
   }
 </style>
