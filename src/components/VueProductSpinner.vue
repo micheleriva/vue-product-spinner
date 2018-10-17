@@ -12,8 +12,10 @@
       type="range"
       min="1"
       max="imgsNum"
-      value="currentImg"
+      step="1"
+      :value="currentImg"
       :class="rangeClass"
+      @input="handleRange()"
       v-if="showRange"
     )
 
@@ -31,7 +33,10 @@ export default {
 
   data: function() {
     return {
-      capture: false,
+      capture: {
+        enabled: true,
+        start:   0,
+      },
       drag: {
         x: 0,
       },
@@ -39,6 +44,7 @@ export default {
         width:  0,
       },
       imgsNum: this.imgs.length,
+      currentImg: this.imgs[0]
     }
   },
 
@@ -46,26 +52,32 @@ export default {
     this.bounds.width  = this.$refs.mainDiv.clientWidth
   },
 
-  computed: {
-    currentImg() {
-      const  index = parseInt(this.imgsNum / (this.bounds.width / this.drag.x)) 
-      return this.imgs[index]
-    }
-  },
-
   methods: {
 
-    handleMouseDown() {
-      this.capture = true
+    handleMouseDown(event) {
+      this.capture.enabled = true
+      this.capture.start   = event.x
     },
 
     handleMouseUp() {
-      this.capture = false
+      this.capture.enabled = false
     },
 
     handleMouseMove(event) {
-      if (!this.capture) return
+      if (!this.capture.enabled) {
+        return
+      }
       this.drag.x = event.x
+      this.computeCurrentImage()
+    },
+
+    computeCurrentImage() {
+      const limit        = this.imgsNum
+      const currentIndex = this.imgs.indexOf(this.currentImg)
+      const range        = Math.floor(this.bounds.width / (this.capture.start - this.drag.x))
+      const index        = Math.floor(limit / (this.bounds.width / this.drag.x))
+      console.log(range)
+      this.currentImg = this.imgs[index]
     }
 
   }

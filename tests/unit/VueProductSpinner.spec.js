@@ -64,6 +64,7 @@ describe('VueProductSpinner.vue', () => {
     })
 
     expect(wrapper.contains('div')).toBe(true)
+    expect(wrapper.props().imgs.length).toBe(51)
 
   })
 })
