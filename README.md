@@ -1,9 +1,9 @@
-# 🚗 Vue Product Spinner (Under Active Development, still buggy)
+# 🚗 Vue Product Spinner (Under development, nee your help!)
 
 <p align="center">
   <img src="/docs/logo.png" />
   
-  <p> A 3D product spinner with no dependencies built for Vue.js </p>
+  <p style="text-align: center"> A 3D product spinner with no dependencies built for Vue.js </p>
 </p>
 
 [![Build Status](https://travis-ci.org/micheleriva/vue-product-spinner.svg?branch=master)](https://travis-ci.org/micheleriva/vue-product-spinner)
