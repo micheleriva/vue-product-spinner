@@ -26,7 +26,7 @@
 import VueProductSpinner from './components/VueProductSpinner.vue'
 import GitHubRibbon      from './components/GitHubRibbon.vue'
 import Spinner           from './components/Spinner.vue'
-import Cars              from './carImgs'
+import Cars              from './carImgs.js'
 
 export default {
   name: 'app',
@@ -65,6 +65,8 @@ export default {
       this.bgColor = Cars[carName].colors[0]
       this.colors  = Cars[carName].colors
       this.imgs    = Cars[carName].imgs
+      this.imagesAreReady = false
+      this.preloadImages()
     }
   },
 
