@@ -1,8 +1,9 @@
 <h1 align="center">
   <img src="/docs/logo.png" />
-    <br />
-      Vue Product Spinner (Under development, nee your help!)
-    <br />
+    <br /><br />
+      Vue Product Spinner <br />
+      Under development - we need your help!
+    <br /><br />
 </h1>
 
 <h4 align="center">
