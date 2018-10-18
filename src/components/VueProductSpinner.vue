@@ -2,9 +2,6 @@
 
   #VueProductSpinnerImgRef.vue-product-spinner(
     ref="mainDiv"
-    @touchstart="handleTouchStart"
-    @touchmove="handleTouchMove"
-    @tuochend="handleTouchEnd"
   )
 
     img(
@@ -13,6 +10,10 @@
       @mousedown="handleMouseDown"
       @mouseup="handleMouseUp"
       @mousemove="handleMouseMove"
+      
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @tuochend="handleTouchEnd"
     )
     input(
       type="range"
@@ -20,9 +21,9 @@
       :max="imgsNum"
       step="1"
       :value="currentIndex"
-      :class="rangeClass"
+      :class="range.class"
       @input="handleRange"
-      v-if="showRange"
+      v-if="range.enable"
     )
 
 </template>
@@ -33,8 +34,8 @@ export default {
   name: 'VueProductSpinner',
 
   props: {
-    imgs:       Array,
-    showRange:  Boolean,
+    imgs:   Array,
+    range:  Object,
     rangeClass: String
   },
 
@@ -63,9 +64,11 @@ export default {
     imgsNum() {
       return this.imgs.length
     },
+
     pixelPerFrame() {
       return Math.floor(this.bounds.width / (this.imgsNum / 2))
     },
+
     currentImg() {
       return this.imgs[this.currentIndex]
     }

@@ -3,9 +3,9 @@
     GitHubRibbon
     VueProductSpinner(
       :imgs="images"
-      :showRange="true"
-      rangeClass="custom-range"
-      v-if="imagesAreReady")
+      :range="range"
+      v-if="imagesAreReady"
+    )
     .spinner-cont(v-else)
       Spinner
     .car-selector
@@ -37,7 +37,11 @@ export default {
       bgColor:        Cars.honda.colors[0],
       colors:         Cars.honda.colors,
       imgs:           Cars.honda.imgs,
-      availableCars:  Object.keys(Cars)
+      availableCars:  Object.keys(Cars),
+      range: {
+        enable: true,
+        class:  'custom-range'
+      }
     }
   },
 

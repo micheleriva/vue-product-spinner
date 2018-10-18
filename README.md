@@ -42,14 +42,17 @@ yarn add vue-product-spinner
 
 **UMD build**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@0.0.7-dev/dist/vue-product-spinner.umd.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@0.0.8-dev/dist/vue-product-spinner.umd.js" type="text/javascript"></script>
 ```
 
 # Usage
 
 ```html
 <template>
-  <VueProductSpinner :imgs="imgs" />
+  <VueProductSpinner 
+    :imgs="imgs" 
+    :range="range"
+  />
 </template>
 
 <script>
@@ -62,7 +65,11 @@ yarn add vue-product-spinner
           'img1.jpg',
           'img2.jpg',
           'img3.jpg'
-        ]
+        ],
+        range: {
+          enable: true,
+          class:  'custom-range'
+        }
       }
     },
 
