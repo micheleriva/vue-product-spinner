@@ -13,7 +13,8 @@
       "name": "Sid Bentifraouine",
       "email": "sidbentifraouine@gmail.com",
       "url": "https://twitter.com/sbentifraouine"
-    }, {
+    }, 
+    {
       "name": "Bedis ElAcheche",
       "email": "d4rk-5c0rp@ubuntu.com",
       "url": "https://github.com/bedis-elacheche"
@@ -29,7 +30,8 @@
     "spinner",
     "carousel",
     "3d",
-    "product"
+    "product",
+    "component"
   ],
   "repository": {
     "type": "git",

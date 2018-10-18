@@ -10,6 +10,7 @@
       @mousedown="handleMouseDown"
       @mouseup="handleMouseUp"
       @mousemove="handleMouseMove"
+      @mouseleave="handleMouseUp"
       
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
@@ -34,9 +35,8 @@ export default {
   name: 'VueProductSpinner',
 
   props: {
-    imgs:   Array,
-    range:  Object,
-    rangeClass: String
+    imgs:  Array,
+    range: Object
   },
 
   data() {
@@ -57,7 +57,7 @@ export default {
   },
 
   mounted() {
-    this.bounds.width  = this.$refs.mainDiv.clientWidth
+    this.bounds.width = this.$refs.mainDiv.clientWidth
   },
 
   computed: {
@@ -91,7 +91,20 @@ export default {
         return
       }
       this.drag.x = event.x
-      this.computeCurrentImage()
+
+      const startPoint   = this.capture.start
+      const currentPoint = this.drag.x
+
+      if (startPoint === currentPoint) {
+        return
+      }
+
+      if (currentPoint - startPoint < this.pixelPerFrame) {
+        this.currentIndex--
+      } else {
+        this.currentIndex++
+      }
+
     },
 
     handleTouchStart(event) {
@@ -109,17 +122,13 @@ export default {
         return
       }
       this.drag.x = event.touches[0].clientX
+      this.computeCurrentImage()
     },
 
     computeCurrentImage() {
-      const limit        = this.imgsNum
-      const range        = Math.floor(this.bounds.width / (this.capture.start - this.drag.x))
-      const index        = Math.floor(limit / (this.bounds.width / this.drag.x))
-      
-      console.log(this.capture.start - this.drag.x)
-    
-      this.currentIndex = index >= 52 ? 51 : index
-
+      const limit       = this.imgsNum
+      const index       = Math.floor(limit / (this.bounds.width / this.drag.x))
+      this.currentIndex = index >= limit ? limit - 1 : index
     },
 
     handleRange(ev) {

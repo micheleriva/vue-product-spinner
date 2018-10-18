@@ -1,7 +1,6 @@
 export default {
   "honda": {
      "colors": [
-        "#CED2D8",
         "#A7B8CE",
         "#A46C00",
         "#319289",
