@@ -52,12 +52,6 @@ export default {
     },
 
     preloadImages() {
-
-      this.images.forEach(element => {
-        const img = new Image()
-        img.src = element
-      })
-
       this.imagesAreReady = true
     },
 
