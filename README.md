@@ -1,11 +1,18 @@
 # 🚗 Vue Product Spinner (Under Active Development, still buggy)
 
+<div style="text-align:center">
+
+  <img src ="/artwork/VueProductSpinner.png" />
+
 [![Build Status](https://travis-ci.org/micheleriva/vue-product-spinner.svg?branch=master)](https://travis-ci.org/micheleriva/vue-product-spinner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Vue Version](https://img.shields.io/badge/vue-2.5.17-green.svg)](https://vuejs.org/)
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=An%20amazing%20vue%20js%20component&url=https://github.com/micheleriva/vue-product-spinner&hashtags=vuejs,vue,spinner,3D,component)
 
+
 A 3D product spinner with no dependencies built for Vue.js
+
+</div>
 
 # Demo
 
