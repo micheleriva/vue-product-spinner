@@ -42,7 +42,7 @@ yarn add vue-product-spinner
 
 **UMD build**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@0.0.8-dev/dist/vue-product-spinner.umd.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@0.0.9-dev/dist/vue-product-spinner.umd.js" type="text/javascript"></script>
 ```
 
 # Usage
