@@ -106,9 +106,9 @@ See also the list of [contributors](https://github.com/micheleriva/vue-product-s
 # Roadmap
 
 - [ ] Solve basic bugs
+- [ ] Add "mouse move" support
 - [x] Add slider support
 - [x] Add touchscreen support
-- [ ] Add "mouse move" support
 
 # Buy Me a Coffee!
 

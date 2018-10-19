@@ -4,6 +4,7 @@
     VueProductSpinner(
       :imgs="images"
       :range="range"
+      :mode="mode"
       v-if="imagesAreReady"
     )
     .spinner-cont(v-else)
@@ -38,6 +39,7 @@ export default {
       colors:         Cars.honda.colors,
       imgs:           Cars.honda.imgs,
       availableCars:  Object.keys(Cars),
+      mode:           'Drag',
       range: {
         enable: true,
         class:  'custom-range'

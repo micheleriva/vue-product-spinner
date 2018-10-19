@@ -36,7 +36,8 @@ export default {
 
   props: {
     imgs:  Array,
-    range: Object
+    range: Object,
+    mode:  String
   },
 
   data() {
@@ -87,22 +88,20 @@ export default {
     },
 
     handleMouseMove(event) {
-      if (!this.capture.enabled) {
-        return
-      }
-      this.drag.x = event.x
+      if (!this.capture.enabled) return
 
+      this.drag.x        = event.x
       const startPoint   = this.capture.start
       const currentPoint = this.drag.x
 
-      if (startPoint === currentPoint) {
-        return
-      }
+      if (startPoint === currentPoint) return
 
-      if (currentPoint - startPoint < this.pixelPerFrame) {
-        this.currentIndex--
+      const shouldMove = (this.currentIndex > 0 && this.currentIndex < this.imgsNum - 1)
+
+      if (currentPoint - startPoint > this.pixelPerFrame) {
+        shouldMove && this.currentIndex++
       } else {
-        this.currentIndex++
+        shouldMove && this.currentIndex--
       }
 
     },
