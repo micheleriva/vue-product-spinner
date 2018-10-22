@@ -107,6 +107,7 @@ See also the list of [contributors](https://github.com/micheleriva/vue-product-s
 
 - [ ] Solve basic bugs
 - [ ] Add "mouse move" support
+- [ ] Add "mouse scroll" support
 - [x] Add slider support
 - [x] Add touchscreen support
 

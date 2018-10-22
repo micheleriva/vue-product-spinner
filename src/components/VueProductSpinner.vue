@@ -3,7 +3,6 @@
   .vue-product-spinner(
     ref="mainDiv"
   )
-
     img#VueProductSpinnerImgRef(
       :src="currentImg", 
       draggable="false"
@@ -18,7 +17,7 @@
     )
     input(
       type="range"
-      min="1"
+      min="0"
       :max="imgsNum"
       step="1"
       :value="currentIndex"
@@ -37,7 +36,7 @@ export default {
   props: {
     imgs:  Array,
     range: Object,
-    mode:  String
+    mode:  Array
   },
 
   data() {
@@ -59,6 +58,16 @@ export default {
 
   mounted() {
     this.bounds.width = this.$refs.mainDiv.clientWidth
+  },
+
+  created() {
+    document.getElementById('VueProductSpinnerImgRef')
+            .addEventListener('scroll', this.handleWheel)
+  },
+
+  destroyed() {
+    document.getElementById('VueProductSpinnerImgRef')
+            .removeEventListener('scroll', this.handleWheel)
   },
 
   computed: {
@@ -124,6 +133,12 @@ export default {
       this.computeCurrentImage()
     },
 
+    handleWheel() {
+      return this.currentIndex === this.imgsNum
+                               ? 0
+                               : this.currentIndex++
+    },
+
     computeCurrentImage() {
       const limit       = this.imgsNum
       const index       = Math.floor(limit / (this.bounds.width / this.drag.x))
@@ -131,7 +146,7 @@ export default {
     },
 
     handleRange(ev) {
-      return this.currentIndex = ev.target.value - 1
+      return this.currentIndex = ev.target.value
     }
 
   }

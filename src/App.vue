@@ -39,7 +39,7 @@ export default {
       colors:         Cars.honda.colors,
       imgs:           Cars.honda.imgs,
       availableCars:  Object.keys(Cars),
-      mode:           'Drag',
+      mode:           ['drag'],
       range: {
         enable: true,
         class:  'custom-range'
