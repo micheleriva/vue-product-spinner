@@ -1,10 +1,10 @@
 <template lang="pug">
 
-  #VueProductSpinnerImgRef.vue-product-spinner(
+  .vue-product-spinner(
     ref="mainDiv"
   )
 
-    img(
+    img#VueProductSpinnerImgRef(
       :src="currentImg", 
       draggable="false"
       @mousedown="handleMouseDown"
