@@ -96,7 +96,7 @@ export default {
 
       if (startPoint === currentPoint) return
 
-      const shouldMove = (this.currentIndex > 0 && this.currentIndex < this.imgsNum - 1)
+      const shouldMove = (this.currentIndex >= 0 && this.currentIndex <= this.imgsNum)
 
       if (currentPoint - startPoint > this.pixelPerFrame) {
         shouldMove && this.currentIndex++
