@@ -1,8 +1,8 @@
 {
   "name": "vue-product-spinner",
-  "version": "0.0.9-dev",
+  "version": "0.0.10-dev",
   "private": false,
-  "main": "./src/components/VueProductSpinner.vue",
+  "main": "./dist/vue-product-spinner.common.js",
   "author": {
     "name": "Michele Riva",
     "email": "ciao@micheleriva.it",

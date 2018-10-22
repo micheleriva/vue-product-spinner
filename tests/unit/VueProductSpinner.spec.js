@@ -1,8 +1,11 @@
-import { shallowMount } from '@vue/test-utils'
+import Vue               from 'vue'
+import { shallowMount }  from '@vue/test-utils'
 import VueProductSpinner from '@/components/VueProductSpinner.vue'
 
 describe('VueProductSpinner.vue', () => {
-  it('renders only a div', () => {
+
+  it('should receive props correctly without mutating them', () => {
+  
     const imgs    = [
       'https://micheleriva.github.io/vue-product-spinner/imgs/1.png',
       'https://micheleriva.github.io/vue-product-spinner/imgs/2.png',
@@ -60,6 +63,7 @@ describe('VueProductSpinner.vue', () => {
       enable: true,
       class:  'custom-range'
     }
+  
     const wrapper = shallowMount(VueProductSpinner, {
       propsData: { 
         imgs,
@@ -67,8 +71,10 @@ describe('VueProductSpinner.vue', () => {
        }
     })
 
-    expect(wrapper.contains('div')).toBe(true)
     expect(wrapper.props().imgs.length).toBe(51)
+    expect(wrapper.props().range.enable).toBe(true)
+    expect(wrapper.props().range.class).toBe('custom-range')
 
   })
+
 })
