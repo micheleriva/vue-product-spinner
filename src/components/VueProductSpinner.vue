@@ -58,16 +58,14 @@ export default {
 
   mounted() {
     this.bounds.width = this.$refs.mainDiv.clientWidth
+    this.$refs.mainDiv.addEventListener('mousewheel', this.handleWheel, false)
+    this.$refs.mainDiv.addEventListener("DOMMouseScroll", this.handleWheel, false)
+
   },
 
-  created() {
-    document.getElementById('VueProductSpinnerImgRef')
-            .addEventListener('scroll', this.handleWheel)
-  },
-
-  destroyed() {
-    document.getElementById('VueProductSpinnerImgRef')
-            .removeEventListener('scroll', this.handleWheel)
+  destroyed() {    
+    this.$refs.mainDiv.removeEventListener('mousewheel', this.handleWheel)
+    this.$refs.mainDiv.removeEventListener("DOMMouseScroll", this.handleWheel)
   },
 
   computed: {
@@ -133,10 +131,10 @@ export default {
       this.computeCurrentImage()
     },
 
-    handleWheel() {
-      return this.currentIndex === this.imgsNum
-                               ? 0
-                               : this.currentIndex++
+    handleWheel(event) {
+      let delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)))
+      this.currentIndex += delta
+      this.currentIndex = Math.min(Math.max(this.currentIndex, 0), this.imgsNum);
     },
 
     computeCurrentImage() {
