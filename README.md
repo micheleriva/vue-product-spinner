@@ -1,9 +1,11 @@
 <div align="center">
-  <img src="/logo/png/small.png" align="center">
+  <img src="/logo/VueProductSpinner.svg" width="550" align="center">
 </div>
 
 <br />
 <br />
+
+<p align="center"> The product spinner that Vue.js was missing. </p>
 
 <p align="center">
   <a href="https://travis-ci.org/micheleriva/vue-product-spinner" target="_blank">
