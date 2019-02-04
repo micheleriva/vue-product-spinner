@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <VueProductSpinner
-      :images="productImages"
-      :slider="true"
-      :infinite="true"
-    />
+    <VueProductSpinner :images="productImages" :slider="true" :infinite="true" />
     <VueProductSpinner :images="shoeImages" :slider="true" :infinite="true" />
   </div>
 </template>
@@ -17,9 +13,7 @@ const images = (): string[] =>
   [...Array(51)].map((_img: string, i: number) => `/imgs/honda/${i + 1}.png`);
 
 const shoe = (): string[] =>
-  [...Array(71)].map(
-    (_img: string, i: number) => `/imgs/shoe/UnderArmour-${i + 1}.jpg`
-  );
+  [...Array(71)].map((_img: string, i: number) => `/imgs/shoe/UnderArmour-${i + 1}.jpg`);
 
 export default Vue.extend({
   name: "app",
@@ -34,14 +28,3 @@ export default Vue.extend({
   }
 });
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
