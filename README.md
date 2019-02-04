@@ -1,8 +1,20 @@
+<div align="center">
+  <img src="/logo/VueProductSpinner.svg" width="550" align="center">
+</div>
+
+<br />
+<br />
+
+<p align="center"> The product spinner that Vue.js was missing. </p>
+
 <p align="center">
-  <a href="https://travis-ci.org/micheleriva/vue-product-spinner">
+  <a href="https://travis-ci.org/micheleriva/vue-product-spinner" target="_blank">
     <img src="https://img.shields.io/travis/micheleriva/vue-product-spinner.svg?style=for-the-badge" alt="Build Status" />
   </a>
-  <a href="https://opensource.org/licenses/MIT">
+  <a href="https://prettier.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Code%20Style-Prettier-ff69b4.svg?style=for-the-badge">
+  </a>
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License" />
   </a>
 </p>

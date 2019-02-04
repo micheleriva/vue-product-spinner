@@ -23,9 +23,17 @@
     "type": "git",
     "url": "https://github.com/micheleriva/vue-product-spinner"
   },
+  "main": "./dist/VueProductSpinner.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name VueProductSpinner ./src/components/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -52,5 +60,8 @@
     "ts-jest": "^23.0.0",
     "typescript": "~3.2.2",
     "vue-template-compiler": "^2.5.21"
+  },
+  "resolutions": {
+    "terser": "3.14.1"
   }
 }
