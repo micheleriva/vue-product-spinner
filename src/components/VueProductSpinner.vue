@@ -68,7 +68,8 @@ export default Vue.extend({
         isMoving: false
       },
       touch: {
-        isMoving: false
+        isMoving: false,
+        initialX: 0
       }
     };
   },
@@ -122,16 +123,18 @@ export default Vue.extend({
       }
     },
 
-    handleTouchStart() {
-      this.mouse.isMoving = true;
+    handleTouchStart(event) {
+      this.touch.isMoving = true;
+      this.touch.initialX = event.touches[0].pageX;
     },
 
     handleTouchEnd() {
-      this.mouse.isMoving = false;
+      this.touch.isMoving = false;
     },
 
     handleTouchMove(event) {
-      console.log(event);
+      const delta = -(this.touch.initialX - event.touches[0].pageX);
+      this.handleMovement(delta);
     },
 
     handleWheel(event) {

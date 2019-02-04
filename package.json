@@ -2,6 +2,27 @@
   "name": "vue-product-spinner",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Michele Riva",
+    "email": "ciao@micheleriva.it",
+    "url": "https://www.micheleriva.it"
+  },
+  "bugs": {
+    "url": "https://github.com/micheleriva/vue-product-spinner/issues"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "spinner",
+    "carousel",
+    "3d",
+    "product",
+    "component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micheleriva/vue-product-spinner"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
