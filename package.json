@@ -38,28 +38,28 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "cssnano": "^4.1.8",
-    "cssnano-preset-advanced": "^4.0.6",
-    "postcss-preset-env": "^6.5.0",
-    "vue": "^2.5.22"
+    "cssnano": "4.1.8",
+    "cssnano-preset-advanced": "4.0.6",
+    "postcss-preset-env": "6.5.0",
+    "vue": "2.5.22"
   },
   "devDependencies": {
-    "@types/jest": "^23.1.4",
-    "@vue/cli-plugin-babel": "^3.0.5",
-    "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-plugin-typescript": "^3.0.5",
-    "@vue/cli-plugin-unit-jest": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
-    "@vue/eslint-config-prettier": "^4.0.1",
-    "@vue/eslint-config-typescript": "^4.0.0",
-    "@vue/test-utils": "^1.0.0-beta.20",
+    "@types/jest": "23.1.4",
+    "@vue/cli-plugin-babel": "3.0.5",
+    "@vue/cli-plugin-eslint": "3.0.5",
+    "@vue/cli-plugin-typescript": "3.0.5",
+    "@vue/cli-plugin-unit-jest": "3.0.5",
+    "@vue/cli-service": "3.0.5",
+    "@vue/eslint-config-prettier": "4.0.1",
+    "@vue/eslint-config-typescript": "4.0.0",
+    "@vue/test-utils": "1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "ts-jest": "^23.0.0",
-    "typescript": "~3.2.2",
-    "vue-template-compiler": "^2.5.21"
+    "babel-eslint": "10.0.1",
+    "eslint": "5.8.0",
+    "eslint-plugin-vue": "5.0.0",
+    "ts-jest": "23.0.0",
+    "typescript": "3.2.2",
+    "vue-template-compiler": "2.5.21"
   },
   "resolutions": {
     "terser": "3.14.1"
