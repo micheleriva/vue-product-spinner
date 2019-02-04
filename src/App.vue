@@ -5,6 +5,7 @@
       :slider="true"
       :infinite="true"
     />
+    <VueProductSpinner :images="shoeImages" :slider="true" :infinite="true" />
   </div>
 </template>
 
@@ -15,6 +16,11 @@ import VueProductSpinner from "./components/VueProductSpinner.vue";
 const images = (): string[] =>
   [...Array(51)].map((_img: string, i: number) => `/imgs/honda/${i + 1}.png`);
 
+const shoe = (): string[] =>
+  [...Array(71)].map(
+    (_img: string, i: number) => `/imgs/shoe/UnderArmour-${i + 1}.jpg`
+  );
+
 export default Vue.extend({
   name: "app",
   components: {
@@ -22,7 +28,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      productImages: images()
+      productImages: images(),
+      shoeImages: shoe()
     };
   }
 });
