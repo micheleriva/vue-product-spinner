@@ -1,6 +1,16 @@
 <template>
   <div class="vue-product-spinner" ref="componentContainer">
-    <img :src="spinner.currentPath" :class="spinnerClass" draggable="false" />
+    <img
+      :src="spinner.currentPath"
+      :class="spinnerClass"
+      draggable="false"
+      @mouseup="handleMouseUp"
+      @mousedown="handleMouseDown"
+      @mousemove="handleMouseMove"
+      @touchstart="handleTouchStart"
+      @touchend="handleTouchEnd"
+      @touchmove="handleTouchMove"
+    />
     <input
       type="range"
       min="1"
@@ -28,19 +38,22 @@ export default Vue.extend({
     infinite: {
       type: Boolean,
       required: false,
-      default: () => false
+      default: () => true
     },
     slider: {
       type: Boolean,
-      required: false
+      required: false,
+      default: () => false
     },
     spinnerClass: {
       type: String,
-      required: false
+      required: false,
+      default: () => ""
     },
     sliderClass: {
       type: String,
-      required: false
+      required: false,
+      default: () => ""
     }
   },
 
@@ -50,6 +63,12 @@ export default Vue.extend({
         current: 0,
         size: 0,
         currentPath: null
+      },
+      mouse: {
+        isMoving: false
+      },
+      touch: {
+        isMoving: false
       }
     };
   },
@@ -59,6 +78,22 @@ export default Vue.extend({
       "mousewheel",
       this.handleWheel,
       false
+    );
+    this.$refs.componentContainer.addEventListener(
+      "DOMMouseScroll",
+      this.handleWheel,
+      false
+    );
+  },
+
+  destroyed() {
+    this.$refs.componentContainer.removeEventListener(
+      "mousewheel",
+      this.handleWheel
+    );
+    this.$refs.componentContainer.removeEventListener(
+      "DOMMouseScroll",
+      this.handleWheel
     );
   },
 
@@ -73,8 +108,41 @@ export default Vue.extend({
       this.spinner.currentPath = this.images[event.target.value - 1];
     },
 
+    handleMouseDown() {
+      this.mouse.isMoving = true;
+    },
+
+    handleMouseUp() {
+      this.mouse.isMoving = false;
+    },
+
+    handleMouseMove(event) {
+      if (this.mouse.isMoving) {
+        this.handleMovement(event.movementX);
+      }
+    },
+
+    handleTouchStart() {
+      this.mouse.isMoving = true;
+    },
+
+    handleTouchEnd() {
+      this.mouse.isMoving = false;
+    },
+
+    handleTouchMove(event) {
+      console.log(event);
+    },
+
     handleWheel(event) {
-      if (event.deltaY >= 0) {
+      this.handleMovement(event.deltaY);
+    },
+
+    handleMovement(delta) {
+      /**
+       * User is moving forwars
+       */
+      if (delta >= 0) {
         if (
           this.spinner.current >= 0 &&
           this.spinner.current < this.spinner.size
@@ -88,6 +156,9 @@ export default Vue.extend({
           }
         }
       } else {
+        /**
+         * User is moving backward
+         */
         if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
           this.spinner.current--;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
