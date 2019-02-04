@@ -1,31 +1,74 @@
-# vue-product-spinner
+<p align="center">
+  <a href="https://travis-ci.org/micheleriva/vue-product-spinner">
+    <img src="https://img.shields.io/travis/micheleriva/vue-product-spinner.svg?style=for-the-badge" alt="Build Status" />
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License" />
+  </a>
+</p>
 
-## Project setup
-```
-yarn install
-```
+# Installation
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+**npm**
+```sh
+npm i vue-product-spinner
 ```
 
-### Lints and fixes files
-```
-yarn run lint
+**yarn**
+```sh
+yarn add vue-product-spinner
 ```
 
-### Run your unit tests
+**UMD build**
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@latest/dist/vue-product-spinner.umd.js" type="text/javascript"></script>
 ```
-yarn run test:unit
+
+# Usage
+
+```html
+<template>
+  <VueProductSpinner 
+    :imgs="imgs" 
+    :slider="true"
+  />
+</template>
+
+<script>
+  import VueProductSpinner from 'vue-product-spinner'
+
+  export default {
+    components: {
+      VueProductSpinner
+    },
+    data() {
+      return {
+        images: [
+          'img1.jpg',
+          'img2.jpg',
+          'img3.jpg'
+        ]
+      }
+    }
+  }
+</script>
+
 ```
+
+
+# Roadmap
+
+- [x] Solve basic bugs
+- [x] Add "mouse move" support
+- [x] Add "mouse scroll" support
+- [x] Add slider support
+- [x] Add touchscreen support
+
+# Buy Me a Beer!
+
+[![Beerpay](https://beerpay.io/micheleriva/vue-product-spinner/badge.svg?style=beer)](https://beerpay.io/micheleriva/vue-product-spinner)
+
+Please help me maintain my projects with a little and simple donation! I need beer to work! 😃
+
+# License
+This project is licensed under the MIT License - see the [LICENSE.md]((/LICENSE.md)) file for details.
