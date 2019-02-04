@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <VueProductSpinner :images="productImages" :slider="true" />
+    <VueProductSpinner
+      :images="productImages"
+      :slider="true"
+      :infinite="true"
+    />
   </div>
 </template>
 

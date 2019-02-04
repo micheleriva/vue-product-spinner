@@ -25,6 +25,11 @@ export default Vue.extend({
       type: Array,
       required: true
     },
+    infinite: {
+      type: Boolean,
+      required: false,
+      default: () => false
+    },
     slider: {
       type: Boolean,
       required: false
@@ -76,11 +81,21 @@ export default Vue.extend({
         ) {
           this.spinner.current++;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
+        } else {
+          if (this.infinite) {
+            this.spinner.current = 1;
+            this.spinner.currentPath = this.images[this.spinner.current - 1];
+          }
         }
       } else {
         if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
           this.spinner.current--;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
+        } else {
+          if (this.infinite) {
+            this.spinner.current = this.spinner.size;
+            this.spinner.currentPath = this.images[this.spinner.current - 1];
+          }
         }
       }
     }
