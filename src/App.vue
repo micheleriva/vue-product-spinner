@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <VueProductSpinner :images="productImages" :slider="true" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import VueProductSpinner from "./components/VueProductSpinner.vue";
+
+const images = (): string[] =>
+  [...Array(51)].map((_img: string, i: number) => `/imgs/honda/${i + 1}.png`);
 
 export default Vue.extend({
   name: "app",
   components: {
-    HelloWorld
+    VueProductSpinner
+  },
+  data() {
+    return {
+      productImages: images()
+    };
   }
 });
 </script>
