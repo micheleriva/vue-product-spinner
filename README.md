@@ -1,8 +1,74 @@
 <p align="center">
   <a href="https://travis-ci.org/micheleriva/vue-product-spinner">
-    <img src="https://travis-ci.org/micheleriva/vue-product-spinner.svg?branch=master&style=for-the-badge" alt="Build Status" />
+    <img src="https://img.shields.io/travis/micheleriva/vue-product-spinner.svg?style=for-the-badge" alt="Build Status" />
   </a>
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License" />
   </a>
 </p>
+
+# Installation
+
+**npm**
+```sh
+npm i vue-product-spinner
+```
+
+**yarn**
+```sh
+yarn add vue-product-spinner
+```
+
+**UMD build**
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@latest/dist/vue-product-spinner.umd.js" type="text/javascript"></script>
+```
+
+# Usage
+
+```html
+<template>
+  <VueProductSpinner 
+    :imgs="imgs" 
+    :slider="true"
+  />
+</template>
+
+<script>
+  import VueProductSpinner from 'vue-product-spinner'
+
+  export default {
+    components: {
+      VueProductSpinner
+    },
+    data() {
+      return {
+        images: [
+          'img1.jpg',
+          'img2.jpg',
+          'img3.jpg'
+        ]
+      }
+    }
+  }
+</script>
+
+```
+
+
+# Roadmap
+
+- [x] Solve basic bugs
+- [x] Add "mouse move" support
+- [x] Add "mouse scroll" support
+- [x] Add slider support
+- [x] Add touchscreen support
+
+# Buy Me a Beer!
+
+[![Beerpay](https://beerpay.io/micheleriva/vue-product-spinner/badge.svg?style=beer)](https://beerpay.io/micheleriva/vue-product-spinner)
+
+Please help me maintain my projects with a little and simple donation! I need beer to work! 😃
+
+# License
+This project is licensed under the MIT License - see the [LICENSE.md]((/LICENSE.md)) file for details.
