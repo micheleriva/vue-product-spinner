@@ -82,9 +82,9 @@ yarn add vue-product-spinner
 
 # Roadmap
 
-- [] Add image preloader
-- [] Add hooks
-- [] Solve basic bugs
+- [ ] Add image preloader
+- [ ] Add hooks
+- [ ] Solve basic bugs
 - [x] Add "mouse move" support
 - [x] Add "mouse scroll" support
 - [x] Add slider support
