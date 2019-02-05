@@ -77,13 +77,14 @@ yarn add vue-product-spinner
 | mouseWheel | `Boolean` | optional | `true` | Handle mouse wheel events |
 | mouseDrag | `Boolean` | optional | `true` | Handle mouse drag events |
 | slider | `Boolean` | optional | `false` | Show slider input |
-| spinnerClass | `String` | optional | | Custom product spinner CSS class |
 | sliderClass | `String` | optional | | Custom slider CSS class |
 
 
 # Roadmap
 
-- [x] Solve basic bugs
+- [] Add image preloader
+- [] Add hooks
+- [] Solve basic bugs
 - [x] Add "mouse move" support
 - [x] Add "mouse scroll" support
 - [x] Add slider support

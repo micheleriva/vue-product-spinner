@@ -2,7 +2,6 @@
   <div class="vue-product-spinner" ref="componentContainer">
     <img
       :src="spinner.currentPath"
-      :class="spinnerClass"
       draggable="false"
       @mouseup="handleMouseUp"
       @mousedown="handleMouseDown"
@@ -59,11 +58,6 @@ export default Vue.extend({
       type: Boolean,
       required: false,
       default: () => false
-    },
-    spinnerClass: {
-      type: String,
-      required: false,
-      default: () => ""
     },
     sliderClass: {
       type: String,
@@ -125,6 +119,7 @@ export default Vue.extend({
     },
 
     handleTouchStart(event) {
+      event.preventDefault();
       this.touch.isMoving = true;
       this.touch.initialX = event.touches[0].pageX;
     },
