@@ -143,7 +143,7 @@ export default Vue.extend({
 
     handleMovement(delta) {
       /**
-       * User is moving forwars
+       * User is moving forward
        */
       if (delta >= 0) {
         if (this.spinner.current >= 0 && this.spinner.current < this.spinner.size) {
