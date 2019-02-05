@@ -67,6 +67,19 @@ yarn add vue-product-spinner
 
 ```
 
+# Props
+
+| Prop Name | Type | Is Required | Default Value | Description |
+|-|-|-|-|-|
+| images | `String[]` | `required` | `[]` | An array of images |
+| infinite | `Boolean` | optional | `true` | Infinite loop |
+| touchDrag | `Boolean` | optional | `true` | Handle touch events |
+| mouseWheel | `Boolean` | optional | `true` | Handle mouse wheel events |
+| mouseDrag | `Boolean` | optional | `true` | Handle mouse drag events |
+| slider | `Boolean` | optional | `false` | Show slider input |
+| spinnerClass | `String` | optional | | Custom product spinner CSS class |
+| sliderClass | `String` | optional | | Custom slider CSS class |
+
 
 # Roadmap
 

@@ -40,6 +40,21 @@ export default Vue.extend({
       required: false,
       default: () => true
     },
+    touchDrag: {
+      type: Boolean,
+      required: false,
+      default: () => true
+    },
+    mouseWheel: {
+      type: Boolean,
+      required: false,
+      default: () => true
+    },
+    mouseDrag: {
+      type: Boolean,
+      required: false,
+      default: () => true
+    },
     slider: {
       type: Boolean,
       required: false,
@@ -75,27 +90,13 @@ export default Vue.extend({
   },
 
   mounted() {
-    this.$refs.componentContainer.addEventListener(
-      "mousewheel",
-      this.handleWheel,
-      false
-    );
-    this.$refs.componentContainer.addEventListener(
-      "DOMMouseScroll",
-      this.handleWheel,
-      false
-    );
+    this.$refs.componentContainer.addEventListener("mousewheel", this.handleWheel, false);
+    this.$refs.componentContainer.addEventListener("DOMMouseScroll", this.handleWheel, false);
   },
 
   destroyed() {
-    this.$refs.componentContainer.removeEventListener(
-      "mousewheel",
-      this.handleWheel
-    );
-    this.$refs.componentContainer.removeEventListener(
-      "DOMMouseScroll",
-      this.handleWheel
-    );
+    this.$refs.componentContainer.removeEventListener("mousewheel", this.handleWheel);
+    this.$refs.componentContainer.removeEventListener("DOMMouseScroll", this.handleWheel);
   },
 
   created() {
@@ -118,7 +119,7 @@ export default Vue.extend({
     },
 
     handleMouseMove(event) {
-      if (this.mouse.isMoving) {
+      if (this.mouse.isMoving && this.mouseDrag) {
         this.handleMovement(event.movementX);
       }
     },
@@ -133,12 +134,16 @@ export default Vue.extend({
     },
 
     handleTouchMove(event) {
-      const delta = -(this.touch.initialX - event.touches[0].pageX);
-      this.handleMovement(delta);
+      if (this.touchDrag) {
+        const delta = -(this.touch.initialX - event.touches[0].pageX);
+        this.handleMovement(delta);
+      }
     },
 
     handleWheel(event) {
-      this.handleMovement(event.deltaY);
+      if (this.mouseWheel) {
+        this.handleMovement(event.deltaY);
+      }
     },
 
     handleMovement(delta) {
@@ -146,10 +151,7 @@ export default Vue.extend({
        * User is moving forwars
        */
       if (delta >= 0) {
-        if (
-          this.spinner.current >= 0 &&
-          this.spinner.current < this.spinner.size
-        ) {
+        if (this.spinner.current >= 0 && this.spinner.current < this.spinner.size) {
           this.spinner.current++;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
         } else {
