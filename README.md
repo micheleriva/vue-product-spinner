@@ -19,6 +19,17 @@
   </a>
 </p>
 
+# Live Demo
+
+<a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
+  <img src="/public/gif/Vue-Product-Spinner.gif" align="center">
+</a>
+
+<a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
+  <img src="https://img.shields.io/badge/Live%20Demo-Here-informational.svg?style=for-the-badge" align="center">
+</a>
+
+
 # Installation
 
 **npm**
