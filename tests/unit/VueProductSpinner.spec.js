@@ -24,10 +24,34 @@ describe("Testing methods", () => {
       propsData: { images }
     });
     expect(wrapper.isVueInstance()).toBeTruthy();
+    
     /**
      * Testing methods
      */
-    wrapper.vm.handleWheel({ deltaY: 1 });
+    
+    /**
+     * Handle Wheel Method
+     */
+    
+    wrapper.vm.handleWheel({ deltaY: 1, preventDefault(){} });
     expect(wrapper.vm.spinner.current).toBe(1);
+    expect(wrapper.vm.spinner.currentPath).toBe(images[0]);
+
+    wrapper.vm.handleWheel({ deltaY: 3, preventDefault(){} });
+    expect(wrapper.vm.spinner.current).toBe(2);
+    expect(wrapper.vm.spinner.currentPath).toBe(images[1]);
+
+    wrapper.vm.handleWheel({ deltaY: 9182378, preventDefault(){} });
+    expect(wrapper.vm.spinner.current).toBe(3);
+    expect(wrapper.vm.spinner.currentPath).toBe(images[2]);
+
+    wrapper.vm.handleWheel({ deltaY: -412, preventDefault(){} });
+    expect(wrapper.vm.spinner.current).toBe(2);
+    expect(wrapper.vm.spinner.currentPath).toBe(images[1]);
+
+    wrapper.vm.handleWheel({ deltaY: -2, preventDefault(){} });
+    expect(wrapper.vm.spinner.current).toBe(1);
+    expect(wrapper.vm.spinner.currentPath).toBe(images[0]);
+
   });
 });
