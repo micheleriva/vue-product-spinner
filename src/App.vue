@@ -1,16 +1,32 @@
 <template>
   <div id="app">
-    <VueProductSpinner
-      :images="productImages"
-      :slider="true"
-      :infinite="true"
-    />
-    <VueProductSpinner :images="shoeImages" :slider="true" :infinite="true" />
+    <Ribbon />
+    <div class="demo demo-1">
+      <VueProductSpinner
+        :images="productImages"
+        :slider="true"
+        :infinite="true"
+        :touchDrag="true"
+        :mouseWheel="true"
+        :mouseDrag="true"
+      />
+    </div>
+    <div class="demo demo-2">
+      <VueProductSpinner
+        :images="shoeImages"
+        :slider="true"
+        :infinite="true"
+        :touchDrag="true"
+        :mouseWheel="true"
+        :mouseDrag="true"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import VueProductSpinner from "./components/VueProductSpinner.vue";
+import Ribbon from "./components/Ribbon.vue";
 
 const images = () =>
   [...Array(51)].map((_img, i) => `/imgs/honda/${i + 1}.png`);
@@ -21,7 +37,8 @@ const shoe = () =>
 export default {
   name: "app",
   components: {
-    VueProductSpinner
+    VueProductSpinner,
+    Ribbon
   },
   data() {
     return {
@@ -33,7 +50,19 @@ export default {
 </script>
 
 <style lang="postcss">
-#app {
-  background: #000;
+body {
+  margin: 0;
+}
+
+.demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.demo-1 {
+  background-image: linear-gradient(135deg, #f97794 10%, #623aa2 100%);
 }
 </style>
