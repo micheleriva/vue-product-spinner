@@ -16,7 +16,7 @@
   </a>
 </p>
 
-<h1 align="center> Live Demo </h1>
+<h1 align="center"> Live Demo </h1>
 
 <div align="center">
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
