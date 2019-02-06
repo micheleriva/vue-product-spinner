@@ -1,25 +1,26 @@
 <template>
   <div id="app">
     <Ribbon />
+    <DemoCommands />
     <div class="demo demo-1">
       <VueProductSpinner
         :images="productImages"
-        :slider="true"
-        :infinite="true"
-        :touchDrag="true"
-        :mouseWheel="true"
-        :mouseDrag="true"
+        :slider="props.slider"
+        :infinite="props.infinite"
+        :touchDrag="props.touchDrag"
+        :mouseWheel="props.mouseWheel"
+        :mouseDrag="props.mouseDrag"
         sliderClass="demo-slider"
       />
     </div>
     <div class="demo demo-2">
       <VueProductSpinner
         :images="shoeImages"
-        :slider="true"
-        :infinite="true"
-        :touchDrag="true"
-        :mouseWheel="true"
-        :mouseDrag="true"
+        :slider="props.slider"
+        :infinite="props.infinite"
+        :touchDrag="props.touchDrag"
+        :mouseWheel="props.mouseWheel"
+        :mouseDrag="props.mouseDrag"
         sliderClass="demo-slider"
       />
     </div>
@@ -28,7 +29,9 @@
 
 <script>
 import VueProductSpinner from "./components/VueProductSpinner.vue";
+import DemoCommands from "./components/DemoCommands.vue";
 import Ribbon from "./components/Ribbon.vue";
+import { EventBus } from "./components/EventBus.js";
 
 const images = () =>
   [...Array(51)].map((_img, i) => `/imgs/honda/${i + 1}.png`);
@@ -40,13 +43,34 @@ export default {
   name: "app",
   components: {
     VueProductSpinner,
-    Ribbon
+    Ribbon,
+    DemoCommands
   },
   data() {
     return {
       productImages: images(),
-      shoeImages: shoe()
+      shoeImages: shoe(),
+      props: {
+        slider: true,
+        infinite: true,
+        touchDrag: true,
+        mouseWheel: true,
+        mouseDrag: true
+      }
     };
+  },
+  methods: {
+    handleCommands(commands) {
+      for (let command of commands) {
+        this.props[command.name] = command.value;
+      }
+    }
+  },
+  mounted() {
+    EventBus.$on("newCommand", this.handleCommands);
+  },
+  beforeDestroy() {
+    EventBus.$off("newCommand", this.handleCommands);
   }
 };
 </script>
@@ -54,10 +78,12 @@ export default {
 <style lang="postcss">
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
 .vue-product-spinner img {
   width: 90%;
+  margin-left: 5%;
 }
 
 .demo {
