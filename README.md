@@ -26,6 +26,12 @@
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
     <img src="https://img.shields.io/badge/Live%20Demo-Here-informational.svg?style=for-the-badge" align="center" alg="vue product spinner">
   </a>
+
+  <a href="https://codesandbox.io/s/437k9ojo8x?module=%2Fsrc%2FApp.vue" align="center">
+    <img alt="Edit Vue Product Spinner Demo" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  </a>
+
+
 </div>
 
 # Installation
@@ -112,4 +118,4 @@ You can use it as follows:
 Please help me maintain my projects with a little and simple donation! I need beer to work! 😃
 
 # License
-This project is licensed under the MIT License - see the [LICENSE.md]((/LICENSE.md)) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](/LICENSE.md) file for details.
