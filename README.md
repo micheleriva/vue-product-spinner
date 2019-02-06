@@ -2,9 +2,6 @@
   <img src="/logo/VueProductSpinner.svg" width="550" align="center">
 </div>
 
-<br />
-<br />
-
 <p align="center"> The product spinner that Vue.js was missing. </p>
 
 <p align="center">
@@ -19,7 +16,7 @@
   </a>
 </p>
 
-# Live Demo
+<h1 align="center"> Live Demo </h1>
 
 <div align="center">
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
@@ -27,11 +24,11 @@
   </a>
 
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
-    <img src="https://img.shields.io/badge/Live%20Demo-Here-informational.svg?style=for-the-badge" align="center">
+    <img src="https://img.shields.io/badge/Live%20Demo-Here-informational.svg?style=for-the-badge" align="center" alg="vue product spinner">
   </a>
 </div>
 
-# Installation
+<h1 align="center"> Installation </h1>
 
 **npm**
 ```sh
@@ -48,7 +45,7 @@ yarn add vue-product-spinner
 <script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@latest/dist/VueProductSpinner.umd.min.js" type="text/javascript"></script>
 ```
 
-# Usage
+<h1 align="center"> Usage </h1>
 
 **VueProductSpinner** will allow you to add any component in order to handle the image prefetch time. <br />
 You can use it as follows:
@@ -85,7 +82,7 @@ You can use it as follows:
 
 ```
 
-# Props
+<h1 align="center"> Props </h1>
 
 | Prop Name | Type | Is Required | Default Value | Description |
 |-|-|-|-|-|
@@ -98,7 +95,7 @@ You can use it as follows:
 | sliderClass | `String` | optional | | Custom slider CSS class |
 
 
-# Roadmap
+<h1 align="center"> Roadmap </h1>
 
 - [x] Add image preloader
 - [ ] Add auto spin
@@ -109,11 +106,11 @@ You can use it as follows:
 - [x] Add slider support
 - [x] Add touchscreen support
 
-# Buy Me a Beer!
+<h1 align="center"> Buy Me a Beer! </h1>
 
 [![Beerpay](https://beerpay.io/micheleriva/vue-product-spinner/badge.svg?style=beer)](https://beerpay.io/micheleriva/vue-product-spinner)
 
 Please help me maintain my projects with a little and simple donation! I need beer to work! 😃
 
-# License
+<h1 align="center"> License </h1>
 This project is licensed under the MIT License - see the [LICENSE.md]((/LICENSE.md)) file for details.
