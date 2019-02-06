@@ -16,19 +16,19 @@
   </a>
 </p>
 
-<h1 align="center"> Live Demo </h1>
+# Live Demo
 
 <div align="center">
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
     <img src="/public/gif/Vue-Product-Spinner.gif" align="center">
   </a>
-
+  <br />
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
     <img src="https://img.shields.io/badge/Live%20Demo-Here-informational.svg?style=for-the-badge" align="center" alg="vue product spinner">
   </a>
 </div>
 
-<h1 align="center"> Installation </h1>
+# Installation
 
 **npm**
 ```sh
@@ -45,8 +45,7 @@ yarn add vue-product-spinner
 <script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@latest/dist/VueProductSpinner.umd.min.js" type="text/javascript"></script>
 ```
 
-<h1 align="center"> Usage </h1>
-
+# Usage
 **VueProductSpinner** will allow you to add any component in order to handle the image prefetch time. <br />
 You can use it as follows:
 
@@ -82,7 +81,7 @@ You can use it as follows:
 
 ```
 
-<h1 align="center"> Props </h1>
+# props
 
 | Prop Name | Type | Is Required | Default Value | Description |
 |-|-|-|-|-|
@@ -95,7 +94,7 @@ You can use it as follows:
 | sliderClass | `String` | optional | | Custom slider CSS class |
 
 
-<h1 align="center"> Roadmap </h1>
+# Roadmap
 
 - [x] Add image preloader
 - [ ] Add auto spin
@@ -106,11 +105,11 @@ You can use it as follows:
 - [x] Add slider support
 - [x] Add touchscreen support
 
-<h1 align="center"> Buy Me a Beer! </h1>
+# Buy Me a Beer!
 
 [![Beerpay](https://beerpay.io/micheleriva/vue-product-spinner/badge.svg?style=beer)](https://beerpay.io/micheleriva/vue-product-spinner)
 
 Please help me maintain my projects with a little and simple donation! I need beer to work! 😃
 
-<h1 align="center"> License </h1>
+# License
 This project is licensed under the MIT License - see the [LICENSE.md]((/LICENSE.md)) file for details.
