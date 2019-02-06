@@ -26,12 +26,13 @@
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
     <img src="https://img.shields.io/badge/Live%20Demo-Here-informational.svg?style=for-the-badge" align="center" alg="vue product spinner">
   </a>
+  <br />
+
+  <h3> Try it on CodeSandbox! </h3>
 
   <a href="https://codesandbox.io/s/437k9ojo8x?module=%2Fsrc%2FApp.vue" align="center">
     <img alt="Edit Vue Product Spinner Demo" src="https://codesandbox.io/static/img/play-codesandbox.svg">
   </a>
-
-
 </div>
 
 # Installation
