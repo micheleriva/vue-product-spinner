@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <VueProductSpinner
+      :images="productImages"
+      :slider="true"
+      :infinite="true"
+    />
+    <VueProductSpinner :images="shoeImages" :slider="true" :infinite="true" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import VueProductSpinner from "./components/VueProductSpinner.vue";
+
+const images = () =>
+  [...Array(51)].map((_img, i) => `/imgs/honda/${i + 1}.png`);
+
+const shoe = () =>
+  [...Array(71)].map((_img, i) => `/imgs/shoe/UnderArmour-${i + 1}.jpg`);
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    VueProductSpinner
+  },
+  data() {
+    return {
+      productImages: images(),
+      shoeImages: shoe()
+    };
   }
 };
 </script>
 
-<style>
+<style lang="postcss">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #000;
 }
 </style>
