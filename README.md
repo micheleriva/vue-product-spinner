@@ -8,6 +8,7 @@
   <a href="https://travis-ci.org/micheleriva/vue-product-spinner" target="_blank">
     <img src="https://img.shields.io/travis/micheleriva/vue-product-spinner.svg?style=for-the-badge" alt="Build Status" />
   </a>
+  <img alt="VueProductSpinner weekly downloads" src="https://img.shields.io/npm/dt/vue-product-spinner.svg?label=Downloads%2Fweek&style=for-the-badge" />  
   <a href="https://prettier.io/" target="_blank">
     <img src="https://img.shields.io/badge/Code%20Style-Prettier-ff69b4.svg?style=for-the-badge">
   </a>
