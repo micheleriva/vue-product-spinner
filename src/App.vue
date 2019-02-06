@@ -9,6 +9,7 @@
         :touchDrag="true"
         :mouseWheel="true"
         :mouseDrag="true"
+        sliderClass="demo-slider"
       />
     </div>
     <div class="demo demo-2">
@@ -19,6 +20,7 @@
         :touchDrag="true"
         :mouseWheel="true"
         :mouseDrag="true"
+        sliderClass="demo-slider"
       />
     </div>
   </div>
@@ -54,6 +56,10 @@ body {
   margin: 0;
 }
 
+.vue-product-spinner img {
+  width: 90%;
+}
+
 .demo {
   display: flex;
   justify-content: center;
@@ -64,5 +70,36 @@ body {
 
 .demo-1 {
   background-image: linear-gradient(135deg, #f97794 10%, #623aa2 100%);
+}
+
+.demo-slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  margin-left: 5%;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.demo-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #3f51b5;
+  cursor: pointer;
+}
+
+.demo-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #3f51b5;
+  cursor: pointer;
 }
 </style>
