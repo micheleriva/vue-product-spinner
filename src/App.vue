@@ -11,7 +11,9 @@
         :mouseWheel="props.mouseWheel"
         :mouseDrag="props.mouseDrag"
         sliderClass="demo-slider"
-      />
+      >
+        <PulseLoader color="#3f51b5" />
+      </VueProductSpinner>
     </div>
     <div class="demo demo-2">
       <VueProductSpinner
@@ -22,7 +24,9 @@
         :mouseWheel="props.mouseWheel"
         :mouseDrag="props.mouseDrag"
         sliderClass="demo-slider"
-      />
+      >
+        <PulseLoader color="#3f51b5" />
+      </VueProductSpinner>
     </div>
   </div>
 </template>
@@ -31,20 +35,31 @@
 import VueProductSpinner from "./components/VueProductSpinner.vue";
 import DemoCommands from "./components/DemoCommands.vue";
 import Ribbon from "./components/Ribbon.vue";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 import { EventBus } from "./components/EventBus.js";
 
+const production = window.location.hostname !== "localhost";
+
 const images = () =>
-  [...Array(51)].map((_img, i) => `/imgs/honda/${i + 1}.png`);
+  [...Array(51)].map(
+    (_img, i) =>
+      `${production ? "/vue-product-spinner" : ""}/imgs/honda/${i + 1}.png`
+  );
 
 const shoe = () =>
-  [...Array(71)].map((_img, i) => `/imgs/shoe/UnderArmour-${i + 1}.jpg`);
+  [...Array(71)].map(
+    (_img, i) =>
+      `${production ? "/vue-product-spinner" : ""}/imgs/shoe/UnderArmour-${i +
+        1}.jpg`
+  );
 
 export default {
   name: "app",
   components: {
     VueProductSpinner,
     Ribbon,
-    DemoCommands
+    DemoCommands,
+    PulseLoader
   },
   data() {
     return {

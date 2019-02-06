@@ -1,32 +1,39 @@
 <template>
   <div class="vue-product-spinner" ref="componentContainer">
-    <img
-      tabindex="1"
-      draggable="false"
-      :src="spinner.currentPath"
-      @keydown="handleKeydown"
-      @mouseup="handleMouseUp"
-      @mousedown="handleMouseDown"
-      @mousemove="handleMouseMove"
-      @touchstart="handleTouchStart"
-      @touchend="handleTouchEnd"
-      @touchmove="handleTouchMove"
-    />
-    <input
-      type="range"
-      tabindex="1"
-      min="1"
-      :max="spinner.size"
-      :value="spinner.current"
-      class="vue-product-spinner-slider"
-      :class="sliderClass"
-      @input="handleSlider"
-      v-if="slider"
-    />
+    <div class="vue-product-spinner-wrapper" v-if="imagesPreloaded">
+      <img
+        tabindex="1"
+        draggable="false"
+        :src="spinner.currentPath"
+        @keydown="handleKeydown"
+        @mouseup="handleMouseUp"
+        @mousedown="handleMouseDown"
+        @mousemove="handleMouseMove"
+        @touchstart="handleTouchStart"
+        @touchend="handleTouchEnd"
+        @touchmove="handleTouchMove"
+      />
+      <input
+        type="range"
+        tabindex="1"
+        min="1"
+        :max="spinner.size"
+        :value="spinner.current"
+        class="vue-product-spinner-slider"
+        :class="sliderClass"
+        @input="handleSlider"
+        v-if="slider"
+      />
+    </div>
+    <div v-else>
+      <slot />
+    </div>
   </div>
 </template>
 
 <script>
+import PreloadImages from "../PreloadImages.js";
+
 export default {
   name: "VueProductSpinner",
 
@@ -69,6 +76,7 @@ export default {
 
   data() {
     return {
+      imagesPreloaded: false,
       spinner: {
         current: 0,
         size: 0,
@@ -82,6 +90,10 @@ export default {
         initialX: 0
       }
     };
+  },
+
+  beforeMount() {
+    PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
   },
 
   mounted() {

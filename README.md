@@ -38,16 +38,22 @@ yarn add vue-product-spinner
 
 # Usage
 
+**VueProductSpinner** will allow you to add any component in order to handle the image prefetch time. <br />
+You can use it as follows:
+
 ```html
 <template>
   <VueProductSpinner 
     :imgs="imgs" 
     :slider="true"
-  />
+  >
+    <PreloadSpinnerComponent />
+  </VueProductSpinner>
 </template>
 
 <script>
   import VueProductSpinner from 'vue-product-spinner'
+  import PreloadSpinnerComponent from 'some-library'
 
   export default {
     components: {
@@ -82,7 +88,7 @@ yarn add vue-product-spinner
 
 # Roadmap
 
-- [ ] Add image preloader
+- [x] Add image preloader
 - [ ] Add auto spin
 - [ ] Add hooks
 - [ ] Solve basic bugs
