@@ -16,13 +16,13 @@
   </a>
 </p>
 
-# Live Demo
+<h1 align="center> Live Demo </h1>
 
 <div align="center">
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
     <img src="/public/gif/Vue-Product-Spinner.gif" align="center">
   </a>
-  <br />
+  <br /><br />
   <a href="https://micheleriva.github.io/vue-product-spinner/" target="_blank" align="center">
     <img src="https://img.shields.io/badge/Live%20Demo-Here-informational.svg?style=for-the-badge" align="center" alg="vue product spinner">
   </a>
