@@ -103,6 +103,11 @@ export default {
       false
     );
     this.$refs.componentContainer.addEventListener(
+      "wheel",
+      this.handleWheel,
+      false
+    );
+    this.$refs.componentContainer.addEventListener(
       "DOMMouseScroll",
       this.handleWheel,
       false
@@ -112,6 +117,10 @@ export default {
   destroyed() {
     this.$refs.componentContainer.removeEventListener(
       "mousewheel",
+      this.handleWheel
+    );
+    this.$refs.componentContainer.removeEventListener(
+      "wheel",
       this.handleWheel
     );
     this.$refs.componentContainer.removeEventListener(
@@ -174,6 +183,7 @@ export default {
     },
 
     handleWheel(event) {
+      console.log(event);
       event.preventDefault();
       if (this.mouseWheel) {
         this.handleMovement(event.deltaY);
