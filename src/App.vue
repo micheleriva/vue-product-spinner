@@ -36,7 +36,7 @@ import VueProductSpinner from "./components/VueProductSpinner.vue";
 import DemoCommands from "./components/DemoCommands.vue";
 import Ribbon from "./components/Ribbon.vue";
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
-import { EventBus } from "./components/EventBus.js";
+import { EventBus } from "./EventBus.js";
 
 const production = window.location.hostname !== "localhost";
 
