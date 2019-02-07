@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { EventBus } from "./EventBus.js";
+import { EventBus } from "../EventBus.js";
 
 export default {
   name: "DemoCommands",
