@@ -55,5 +55,8 @@
     "eslint-plugin-vue": "^5.0.0",
     "vue-spinner": "^1.0.3",
     "vue-template-compiler": "^2.5.21"
-  }
+  },
+  "contributors": [
+    "Mattia Astorino <@equinusocio> (https://equinsuocha.io)"
+  ]
 }
