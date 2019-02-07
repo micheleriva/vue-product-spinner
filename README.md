@@ -93,8 +93,9 @@ You can use it as follows:
 
 | Prop Name | Type | Is Required | Default Value | Description |
 |-|-|-|-|-|
-| images | `string[]` | `required` | `[]` | An array of images |
+| images | `string[]` | `required` | `[]` | An array of images to be displayed|
 | infinite | `Boolean` | optional | `true` | Infinite loop |
+| speed | `Number` | optional | `3` | Rotation speed |
 | touchDrag | `Boolean` | optional | `true` | Handle touch events |
 | mouseWheel | `Boolean` | optional | `true` | Handle mouse wheel events |
 | mouseDrag | `Boolean` | optional | `true` | Handle mouse drag events |

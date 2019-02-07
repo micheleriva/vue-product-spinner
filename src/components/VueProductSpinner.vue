@@ -1,6 +1,6 @@
 <template>
-  <div class="vue-product-spinner" ref="componentContainer">
-    <div class="vue-product-spinner-wrapper" v-if="imagesPreloaded">
+  <picture class="vue-product-spinner" ref="componentContainer">
+    <template v-if="imagesPreloaded">
       <img
         tabindex="1"
         draggable="false"
@@ -24,11 +24,11 @@
         @input="handleSlider"
         v-if="slider"
       />
-    </div>
+    </template>
     <slot v-else>
       Loading images...
     </slot>
-  </div>
+  </picture>
 </template>
 
 <script>
@@ -46,6 +46,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => true
+    },
+    speed: {
+      type: Number,
+      required: false,
+      default: () => 3
     },
     touchDrag: {
       type: Boolean,
@@ -77,6 +82,7 @@ export default {
   data() {
     return {
       imagesPreloaded: false,
+      speedController: 0,
       spinner: {
         current: 0,
         size: 0,
@@ -172,10 +178,20 @@ export default {
     },
 
     handleMovement(delta) {
-      /**
-       * User is moving forward
-       */
+      this.speedController++;
+      if (this.speedController < this.speed) {
+        console.log("ad");
+        return;
+      }
+
+      if (this.speedController > this.speed) {
+        this.speedController = 0;
+      }
+
       if (delta >= 0) {
+        /**
+         * User is moving forward
+         */
         if (
           this.spinner.current >= 0 &&
           this.spinner.current < this.spinner.size

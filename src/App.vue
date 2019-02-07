@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Ribbon />
-    <!--    <DemoCommands /> -->
-    <Landing />
+    <DemoCommands />
     <div class="demo demo-1">
       <VueProductSpinner
         :images="productImages"
@@ -33,7 +32,6 @@
 </template>
 
 <script>
-import Landing from "./scenes/Landing.vue";
 import VueProductSpinner from "./components/VueProductSpinner.vue";
 import DemoCommands from "./components/DemoCommands.vue";
 import Ribbon from "./components/Ribbon.vue";
