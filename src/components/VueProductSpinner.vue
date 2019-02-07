@@ -25,9 +25,9 @@
         v-if="slider"
       />
     </div>
-    <div v-else>
-      <slot />
-    </div>
+    <slot v-else>
+      lorem
+    </slot>
   </div>
 </template>
 
