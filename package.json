@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name VueProductSpinner ./src/components/index.js",
+    "build": "vue-cli-service build --target lib --name VueProductSpinner ./src/index.js",
     "build:demo": "vue-cli-service build && sh ./build-demo.sh",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
