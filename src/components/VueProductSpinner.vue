@@ -183,7 +183,6 @@ export default {
     },
 
     handleWheel(event) {
-      console.log(event);
       event.preventDefault();
       if (this.mouseWheel) {
         this.handleMovement(event.deltaY);
