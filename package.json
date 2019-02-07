@@ -26,15 +26,14 @@
   "main": "./dist/VueProductSpinner.common.js",
   "files": [
     "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
+    "src/components/VueProductSpinner.vue",
+    "src/PreloadImages.js",
+    "./*.md"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name VueProductSpinner ./src/index.js",
-    "build:demo": "vue-cli-service build && sh ./build-demo.sh",
+    "build:demo": "vue-cli-service build --dest demo && sh ./build-demo.sh",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
