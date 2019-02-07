@@ -39,22 +39,22 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "vue": "^2.5.22"
+    "vue": "2.5.22"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.5",
-    "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-plugin-unit-jest": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
-    "@vue/eslint-config-prettier": "^4.0.1",
-    "@vue/test-utils": "^1.0.0-beta.20",
+    "@vue/cli-plugin-babel": "3.0.5",
+    "@vue/cli-plugin-eslint": "3.0.5",
+    "@vue/cli-plugin-unit-jest": "3.0.5",
+    "@vue/cli-service": "3.0.5",
+    "@vue/eslint-config-prettier": "4.0.1",
+    "@vue/test-utils": "1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-spinner": "^1.0.3",
-    "vue-template-compiler": "^2.5.21"
+    "babel-eslint": "10.0.1",
+    "babel-jest": "23.6.0",
+    "eslint": "5.8.0",
+    "eslint-plugin-vue": "5.0.0",
+    "vue-spinner": "1.0.3",
+    "vue-template-compiler": "2.5.21"
   },
   "contributors": [
     "Mattia Astorino <@equinusocio> (https://equinsuocha.io)"
