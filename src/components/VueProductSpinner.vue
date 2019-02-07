@@ -26,7 +26,7 @@
       />
     </div>
     <slot v-else>
-      lorem
+      Loading images...
     </slot>
   </div>
 </template>
@@ -98,17 +98,7 @@ export default {
 
   mounted() {
     this.$refs.componentContainer.addEventListener(
-      "mousewheel",
-      this.handleWheel,
-      false
-    );
-    this.$refs.componentContainer.addEventListener(
       "wheel",
-      this.handleWheel,
-      false
-    );
-    this.$refs.componentContainer.addEventListener(
-      "DOMMouseScroll",
       this.handleWheel,
       false
     );
@@ -116,15 +106,7 @@ export default {
 
   destroyed() {
     this.$refs.componentContainer.removeEventListener(
-      "mousewheel",
-      this.handleWheel
-    );
-    this.$refs.componentContainer.removeEventListener(
       "wheel",
-      this.handleWheel
-    );
-    this.$refs.componentContainer.removeEventListener(
-      "DOMMouseScroll",
       this.handleWheel
     );
   },
