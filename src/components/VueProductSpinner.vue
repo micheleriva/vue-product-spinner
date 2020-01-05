@@ -96,14 +96,18 @@ export default {
     };
   },
 
+  watch: {
+    images: function (news, old) {
+      console.log(news, old);
+    }
+  },
+
   beforeMount () {
     PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
   },
 
   updated () {
-    this.spinner.size = this.images.length;
-    this.spinner.currentPath = this.images[0];
-    console.log(this.images);
+
   },
 
   mounted () {
