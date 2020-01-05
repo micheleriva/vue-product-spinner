@@ -97,17 +97,15 @@ export default {
   },
 
   watch: {
-    images: function (news, old) {
-      console.log(news, old);
+    images: function () {
+      this.imagesPreloaded = false;
+      this.handlePreload();
+      this.initSpinner();
     }
   },
 
   beforeMount () {
-    PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
-  },
-
-  updated () {
-
+    this.handlePreload();
   },
 
   mounted () {
@@ -126,11 +124,17 @@ export default {
   },
 
   created () {
-    this.spinner.size = this.images.length;
-    this.spinner.currentPath = this.images[0];
+    this.initSpinner();
   },
 
   methods: {
+    initSpinner () {
+      this.spinner.size = this.images.length;
+      this.spinner.currentPath = this.images[0];
+    },
+    handlePreload () {
+      PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
+    },
     handleKeydown (event) {
       if (event.keyCode === 39) {
         event.preventDefault();
