@@ -59,8 +59,7 @@ export default {
     VueProductSpinner,
     Ribbon,
     DemoCommands,
-    PulseLoader,
-    Landing
+    PulseLoader
   },
   data() {
     return {
