@@ -25,9 +25,7 @@
         v-if="slider"
       />
     </template>
-    <slot v-else>
-      Loading images...
-    </slot>
+    <slot v-else>Loading images...</slot>
   </picture>
 </template>
 
@@ -79,7 +77,7 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
       imagesPreloaded: false,
       speedController: 0,
@@ -98,11 +96,19 @@ export default {
     };
   },
 
-  beforeMount() {
-    PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
+  watch: {
+    images: function () {
+      this.imagesPreloaded = false;
+      this.handlePreload();
+      this.initSpinner();
+    }
   },
 
-  mounted() {
+  beforeMount () {
+    this.handlePreload();
+  },
+
+  mounted () {
     this.$refs.componentContainer.addEventListener(
       "wheel",
       this.handleWheel,
@@ -110,20 +116,28 @@ export default {
     );
   },
 
-  destroyed() {
+  beforeDestroy () {
     this.$refs.componentContainer.removeEventListener(
       "wheel",
       this.handleWheel
     );
   },
 
-  created() {
-    this.spinner.size = this.images.length;
-    this.spinner.currentPath = this.images[0];
+  created () {
+    this.initSpinner();
   },
 
   methods: {
-    handleKeydown(event) {
+    initSpinner () {
+      this.spinner.size = this.images.length;
+      this.spinner.currentPath = this.images[0];
+    },
+
+    handlePreload () {
+      PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
+    },
+
+    handleKeydown (event) {
       if (event.keyCode === 39) {
         event.preventDefault();
         this.handleMovement(1);
@@ -134,50 +148,50 @@ export default {
       }
     },
 
-    handleSlider(event) {
+    handleSlider (event) {
       this.spinner.current = parseInt(event.target.value);
       this.spinner.currentPath = this.images[event.target.value - 1];
     },
 
-    handleMouseDown() {
+    handleMouseDown () {
       this.mouse.isMoving = true;
     },
 
-    handleMouseUp() {
+    handleMouseUp () {
       this.mouse.isMoving = false;
     },
 
-    handleMouseMove(event) {
+    handleMouseMove (event) {
       if (this.mouse.isMoving && this.mouseDrag) {
         this.handleMovement(event.movementX);
       }
     },
 
-    handleTouchStart(event) {
+    handleTouchStart (event) {
       event.preventDefault();
       this.touch.isMoving = true;
       this.touch.initialX = event.touches[0].pageX;
     },
 
-    handleTouchEnd() {
+    handleTouchEnd () {
       this.touch.isMoving = false;
     },
 
-    handleTouchMove(event) {
+    handleTouchMove (event) {
       if (this.touchDrag) {
         const delta = -(this.touch.initialX - event.touches[0].pageX);
         this.handleMovement(delta);
       }
     },
 
-    handleWheel(event) {
+    handleWheel (event) {
       event.preventDefault();
       if (this.mouseWheel) {
         this.handleMovement(event.deltaY);
       }
     },
 
-    handleMovement(delta) {
+    handleMovement (delta) {
       this.speedController++;
       if (this.speedController < this.speed) {
         console.log("ad");
