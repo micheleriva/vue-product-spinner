@@ -116,7 +116,7 @@ export default {
     );
   },
 
-  destroyed () {
+  beforeDestroy () {
     this.$refs.componentContainer.removeEventListener(
       "wheel",
       this.handleWheel
