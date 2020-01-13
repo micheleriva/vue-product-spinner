@@ -194,7 +194,6 @@ export default {
     handleMovement(delta) {
       this.speedController++;
       if (this.speedController < this.speed) {
-        console.log("ad");
         return;
       }
 
