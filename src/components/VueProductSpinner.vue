@@ -77,7 +77,7 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       imagesPreloaded: false,
       speedController: 0,
@@ -97,18 +97,18 @@ export default {
   },
 
   watch: {
-    images: function () {
+    images: function() {
       this.imagesPreloaded = false;
       this.handlePreload();
       this.initSpinner();
     }
   },
 
-  beforeMount () {
+  beforeMount() {
     this.handlePreload();
   },
 
-  mounted () {
+  mounted() {
     this.$refs.componentContainer.addEventListener(
       "wheel",
       this.handleWheel,
@@ -116,28 +116,28 @@ export default {
     );
   },
 
-  beforeDestroy () {
+  beforeDestroy() {
     this.$refs.componentContainer.removeEventListener(
       "wheel",
       this.handleWheel
     );
   },
 
-  created () {
+  created() {
     this.initSpinner();
   },
 
   methods: {
-    initSpinner () {
+    initSpinner() {
       this.spinner.size = this.images.length;
       this.spinner.currentPath = this.images[0];
     },
 
-    handlePreload () {
+    handlePreload() {
       PreloadImages(this.images).then(() => (this.imagesPreloaded = true));
     },
 
-    handleKeydown (event) {
+    handleKeydown(event) {
       if (event.keyCode === 39) {
         event.preventDefault();
         this.handleMovement(1);
@@ -148,50 +148,50 @@ export default {
       }
     },
 
-    handleSlider (event) {
+    handleSlider(event) {
       this.spinner.current = parseInt(event.target.value);
       this.spinner.currentPath = this.images[event.target.value - 1];
     },
 
-    handleMouseDown () {
+    handleMouseDown() {
       this.mouse.isMoving = true;
     },
 
-    handleMouseUp () {
+    handleMouseUp() {
       this.mouse.isMoving = false;
     },
 
-    handleMouseMove (event) {
+    handleMouseMove(event) {
       if (this.mouse.isMoving && this.mouseDrag) {
         this.handleMovement(event.movementX);
       }
     },
 
-    handleTouchStart (event) {
+    handleTouchStart(event) {
       event.preventDefault();
       this.touch.isMoving = true;
       this.touch.initialX = event.touches[0].pageX;
     },
 
-    handleTouchEnd () {
+    handleTouchEnd() {
       this.touch.isMoving = false;
     },
 
-    handleTouchMove (event) {
+    handleTouchMove(event) {
       if (this.touchDrag) {
         const delta = -(this.touch.initialX - event.touches[0].pageX);
         this.handleMovement(delta);
       }
     },
 
-    handleWheel (event) {
-      event.preventDefault();
+    handleWheel(event) {
       if (this.mouseWheel) {
+        event.preventDefault();
         this.handleMovement(event.deltaY);
       }
     },
 
-    handleMovement (delta) {
+    handleMovement(delta) {
       this.speedController++;
       if (this.speedController < this.speed) {
         console.log("ad");
