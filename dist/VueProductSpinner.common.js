@@ -318,6 +318,17 @@ module.exports = (
 
 /***/ }),
 
+/***/ "1af6":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
+var $export = __webpack_require__("63b6");
+
+$export($export.S, 'Array', { isArray: __webpack_require__("9003") });
+
+
+/***/ }),
+
 /***/ "1bc3":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1280,6 +1291,16 @@ module.exports = function (bitmap, value) {
 
 /***/ }),
 
+/***/ "469f":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("6c1c");
+__webpack_require__("1654");
+module.exports = __webpack_require__("7d7b");
+
+
+/***/ }),
+
 /***/ "481b":
 /***/ (function(module, exports) {
 
@@ -1541,19 +1562,10 @@ module.exports = $export;
 
 /***/ }),
 
-/***/ "5d6b":
+/***/ "5d73":
 /***/ (function(module, exports, __webpack_require__) {
 
-var $parseInt = __webpack_require__("e53d").parseInt;
-var $trim = __webpack_require__("a1ce").trim;
-var ws = __webpack_require__("e692");
-var hex = /^[-+]?0[xX]/;
-
-module.exports = $parseInt(ws + '08') !== 8 || $parseInt(ws + '0x16') !== 22 ? function parseInt(str, radix) {
-  var string = $trim(String(str), 3);
-  return $parseInt(string, (radix >>> 0) || (hex.test(string) ? 16 : 10));
-} : $parseInt;
-
+module.exports = __webpack_require__("469f");
 
 /***/ }),
 
@@ -1849,17 +1861,6 @@ module.exports = function (TO_STRING) {
 
 /***/ }),
 
-/***/ "7445":
-/***/ (function(module, exports, __webpack_require__) {
-
-var $export = __webpack_require__("63b6");
-var $parseInt = __webpack_require__("5d6b");
-// 18.2.5 parseInt(string, radix)
-$export($export.G + $export.F * (parseInt != $parseInt), { parseInt: $parseInt });
-
-
-/***/ }),
-
 /***/ "7726":
 /***/ (function(module, exports) {
 
@@ -1939,6 +1940,20 @@ module.exports = __webpack_require__("584a").getIteratorMethod = function (it) {
   if (it != undefined) return it[ITERATOR]
     || it['@@iterator']
     || Iterators[classof(it)];
+};
+
+
+/***/ }),
+
+/***/ "7d7b":
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__("e4ae");
+var get = __webpack_require__("7cd6");
+module.exports = __webpack_require__("584a").getIterator = function (it) {
+  var iterFn = get(it);
+  if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
+  return anObject(iterFn.call(it));
 };
 
 
@@ -2097,6 +2112,18 @@ module.exports = function (Constructor, NAME, next) {
 
 /***/ }),
 
+/***/ "9003":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.2.2 IsArray(argument)
+var cof = __webpack_require__("6b4c");
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
+
+
+/***/ }),
+
 /***/ "9093":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2232,43 +2259,6 @@ module.exports = Object.create || function create(O, Properties) {
 
 /***/ }),
 
-/***/ "a1ce":
-/***/ (function(module, exports, __webpack_require__) {
-
-var $export = __webpack_require__("63b6");
-var defined = __webpack_require__("25eb");
-var fails = __webpack_require__("294c");
-var spaces = __webpack_require__("e692");
-var space = '[' + spaces + ']';
-var non = '\u200b\u0085';
-var ltrim = RegExp('^' + space + space + '*');
-var rtrim = RegExp(space + space + '*$');
-
-var exporter = function (KEY, exec, ALIAS) {
-  var exp = {};
-  var FORCE = fails(function () {
-    return !!spaces[KEY]() || non[KEY]() != non;
-  });
-  var fn = exp[KEY] = FORCE ? exec(trim) : spaces[KEY];
-  if (ALIAS) exp[ALIAS] = fn;
-  $export($export.P + $export.F * FORCE, 'String', exp);
-};
-
-// 1 -> String#trimLeft
-// 2 -> String#trimRight
-// 3 -> String#trim
-var trim = exporter.trim = function (string, TYPE) {
-  string = String(defined(string));
-  if (TYPE & 1) string = string.replace(ltrim, '');
-  if (TYPE & 2) string = string.replace(rtrim, '');
-  return string;
-};
-
-module.exports = exporter;
-
-
-/***/ }),
-
 /***/ "a22a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2298,6 +2288,13 @@ var exports = module.exports = function (iterable, entries, fn, that, ITERATOR) 
 exports.BREAK = BREAK;
 exports.RETURN = RETURN;
 
+
+/***/ }),
+
+/***/ "a745":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("f410");
 
 /***/ }),
 
@@ -2530,15 +2527,6 @@ module.exports = function (it) {
 /***/ (function(module, exports) {
 
 module.exports = true;
-
-
-/***/ }),
-
-/***/ "b9e9":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("7445");
-module.exports = __webpack_require__("584a").parseInt;
 
 
 /***/ }),
@@ -2991,15 +2979,6 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
 /***/ }),
 
-/***/ "e692":
-/***/ (function(module, exports) {
-
-module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
-  '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
-
-
-/***/ }),
-
 /***/ "e6f3":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3024,13 +3003,6 @@ module.exports = function (object, names) {
 
 /***/ }),
 
-/***/ "e814":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("b9e9");
-
-/***/ }),
-
 /***/ "f201":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3043,6 +3015,15 @@ module.exports = function (O, D) {
   var S;
   return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
 };
+
+
+/***/ }),
+
+/***/ "f410":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("1af6");
+module.exports = __webpack_require__("584a").Array.isArray;
 
 
 /***/ }),
@@ -3089,17 +3070,64 @@ if (typeof window !== 'undefined') {
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"03de2629-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VueProductSpinner.vue?vue&type=template&id=141033cf&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d1dd37dc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VueProductSpinner.vue?vue&type=template&id=1e04b510&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('picture',{ref:"componentContainer",staticClass:"vue-product-spinner"},[(_vm.imagesPreloaded)?[_c('img',{attrs:{"tabindex":"1","draggable":"false","src":_vm.spinner.currentPath},on:{"keydown":_vm.handleKeydown,"mouseup":_vm.handleMouseUp,"mousedown":_vm.handleMouseDown,"mousemove":_vm.handleMouseMove,"touchstart":_vm.handleTouchStart,"touchend":_vm.handleTouchEnd,"touchmove":_vm.handleTouchMove}}),(_vm.slider)?_c('input',{staticClass:"vue-product-spinner-slider",class:_vm.sliderClass,attrs:{"type":"range","tabindex":"1","min":"1","max":_vm.spinner.size},domProps:{"value":_vm.spinner.current},on:{"input":_vm.handleSlider}}):_vm._e()]:_vm._t("default",[_vm._v("Loading images...")])],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/VueProductSpinner.vue?vue&type=template&id=141033cf&
+// CONCATENATED MODULE: ./src/components/VueProductSpinner.vue?vue&type=template&id=1e04b510&
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/parse-int.js
-var parse_int = __webpack_require__("e814");
-var parse_int_default = /*#__PURE__*/__webpack_require__.n(parse_int);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js
+var is_array = __webpack_require__("a745");
+var is_array_default = /*#__PURE__*/__webpack_require__.n(is_array);
 
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js
+
+function _arrayWithHoles(arr) {
+  if (is_array_default()(arr)) return arr;
+}
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js
+var get_iterator = __webpack_require__("5d73");
+var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js
+
+function _iterableToArrayLimit(arr, i) {
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = get_iterator_default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js
+
+
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
@@ -3202,25 +3230,11 @@ function preloadImages(srcs) {
         return 3;
       }
     },
-    touchDrag: {
-      type: Boolean,
-      required: false,
-      default: function _default() {
-        return true;
-      }
-    },
     mouseWheel: {
       type: Boolean,
       required: false,
       default: function _default() {
-        return true;
-      }
-    },
-    mouseDrag: {
-      type: Boolean,
-      required: false,
-      default: function _default() {
-        return true;
+        return false;
       }
     },
     slider: {
@@ -3236,6 +3250,13 @@ function preloadImages(srcs) {
       default: function _default() {
         return "";
       }
+    },
+    animation: {
+      type: Boolean,
+      required: false,
+      default: function _default() {
+        return false;
+      }
     }
   },
   data: function data() {
@@ -3248,12 +3269,16 @@ function preloadImages(srcs) {
         currentPath: null
       },
       mouse: {
-        isMoving: false
+        isMoving: false,
+        isDragging: false
       },
       touch: {
         isMoving: false,
-        initialX: 0
-      }
+        initialX: 0,
+        isDragging: false
+      },
+      animationRequestID: 0,
+      lastPosition: 0
     };
   },
   watch: {
@@ -3263,22 +3288,37 @@ function preloadImages(srcs) {
       this.initSpinner();
     }
   },
+  created: function created() {
+    this.initSpinner();
+  },
   beforeMount: function beforeMount() {
     this.handlePreload();
   },
   mounted: function mounted() {
-    this.$refs.componentContainer.addEventListener("wheel", this.handleWheel, false);
+    window.addEventListener('mouseup', this.handleMouseDragging);
+    window.addEventListener('touchend', this.handleTouchDragging);
+
+    if (this.mouseWheel) {
+      this.$refs.componentContainer.addEventListener('wheel', this.handleWheel, false);
+    }
   },
   beforeDestroy: function beforeDestroy() {
-    this.$refs.componentContainer.removeEventListener("wheel", this.handleWheel);
-  },
-  created: function created() {
-    this.initSpinner();
+    if (this.mouseWheel) {
+      this.$refs.componentContainer.removeEventListener('wheel', this.handleWheel);
+    }
+
+    window.removeEventListener('mouseup', this.handleMouseDragging);
+    window.removeEventListener('touchend', this.handleTouchDragging);
   },
   methods: {
     initSpinner: function initSpinner() {
       this.spinner.size = this.images.length;
-      this.spinner.currentPath = this.images[0];
+
+      if (this.animation) {
+        this.spinImages(0, this.spinner.size);
+      } else {
+        this.spinner.currentPath = this.images[0];
+      }
     },
     handlePreload: function handlePreload() {
       var _this = this;
@@ -3290,41 +3330,12 @@ function preloadImages(srcs) {
     handleKeydown: function handleKeydown(event) {
       if (event.keyCode === 39) {
         event.preventDefault();
-        this.handleMovement(1);
+        this.handleMovement(this.lastPosition + 1);
       }
 
       if (event.keyCode === 37) {
         event.preventDefault();
-        this.handleMovement(-1);
-      }
-    },
-    handleSlider: function handleSlider(event) {
-      this.spinner.current = parse_int_default()(event.target.value);
-      this.spinner.currentPath = this.images[event.target.value - 1];
-    },
-    handleMouseDown: function handleMouseDown() {
-      this.mouse.isMoving = true;
-    },
-    handleMouseUp: function handleMouseUp() {
-      this.mouse.isMoving = false;
-    },
-    handleMouseMove: function handleMouseMove(event) {
-      if (this.mouse.isMoving && this.mouseDrag) {
-        this.handleMovement(event.movementX);
-      }
-    },
-    handleTouchStart: function handleTouchStart(event) {
-      event.preventDefault();
-      this.touch.isMoving = true;
-      this.touch.initialX = event.touches[0].pageX;
-    },
-    handleTouchEnd: function handleTouchEnd() {
-      this.touch.isMoving = false;
-    },
-    handleTouchMove: function handleTouchMove(event) {
-      if (this.touchDrag) {
-        var delta = -(this.touch.initialX - event.touches[0].pageX);
-        this.handleMovement(delta);
+        this.handleMovement(this.lastPosition - 1);
       }
     },
     handleWheel: function handleWheel(event) {
@@ -3333,8 +3344,81 @@ function preloadImages(srcs) {
         this.handleMovement(event.deltaY);
       }
     },
+    handleSlider: function handleSlider(event) {
+      this.spinner.current = Number(event.target.value);
+      this.spinner.currentPath = this.images[event.target.value - 1];
+    },
+    handleMouseDown: function handleMouseDown() {
+      if (this.animation) {
+        this.stopAnimation();
+      }
+
+      this.mouse.isDragging = true;
+      this.mouse.isMoving = true;
+    },
+    handleMouseUp: function handleMouseUp() {
+      this.mouse.isMoving = false;
+    },
+    handleMouseMove: function handleMouseMove(event) {
+      if (this.mouse.isMoving && this.mouse.isDragging) {
+        this.handleMovement(event.pageX);
+      }
+    },
+    handleMouseDragging: function handleMouseDragging() {
+      this.mouse.isDragging = false;
+    },
+    handleTouchDragging: function handleTouchDragging() {
+      this.touch.isDragging = false;
+    },
+    handleTouchStart: function handleTouchStart(event) {
+      event.preventDefault();
+
+      if (this.animation) {
+        this.stopAnimation();
+      }
+
+      this.touch.isMoving = true;
+      this.touch.isDragging = true;
+      this.touch.initialX = event.touches[0].pageX;
+    },
+    handleTouchEnd: function handleTouchEnd() {
+      this.touch.isMoving = false;
+    },
+    handleTouchMove: function handleTouchMove(event) {
+      if (this.touch.isDragging) {
+        var delta = -(this.touch.initialX - event.touches[0].pageX);
+        this.handleMovement(delta);
+      }
+    },
+    spinImages: function spinImages(index, lastIndex) {
+      var _this2 = this;
+
+      var i = index;
+
+      if (i !== lastIndex) {
+        this.spinner.currentPath = this.images[i];
+        this.animationRequestID = window.requestAnimationFrame(function () {
+          return _this2.spinImages(i, lastIndex);
+        });
+      } else {
+        this.stopAnimation();
+
+        var _this$images = _slicedToArray(this.images, 1);
+
+        this.spinner.currentPath = _this$images[0];
+        return;
+      }
+
+      i += 1;
+    },
+    stopAnimation: function stopAnimation() {
+      if (this.animationRequestID) {
+        window.cancelAnimationFrame(this.animationRequestID);
+        this.animationRequestID = null;
+      }
+    },
     handleMovement: function handleMovement(delta) {
-      this.speedController++;
+      this.speedController += 1;
 
       if (this.speedController < this.speed) {
         return;
@@ -3344,33 +3428,25 @@ function preloadImages(srcs) {
         this.speedController = 0;
       }
 
-      if (delta >= 0) {
-        /**
-         * User is moving forward
-         */
+      if (delta > this.lastPosition) {
         if (this.spinner.current >= 0 && this.spinner.current < this.spinner.size) {
-          this.spinner.current++;
+          this.spinner.current += 1;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
-        } else {
-          if (this.infinite) {
-            this.spinner.current = 1;
-            this.spinner.currentPath = this.images[this.spinner.current - 1];
-          }
+        } else if (this.infinite) {
+          this.spinner.current = 1;
+          this.spinner.currentPath = this.images[this.spinner.current - 1];
         }
-      } else {
-        /**
-         * User is moving backward
-         */
+      } else if (delta < this.lastPosition) {
         if (this.spinner.current >= 0 && this.spinner.current - 1 > 0) {
-          this.spinner.current--;
+          this.spinner.current -= 1;
           this.spinner.currentPath = this.images[this.spinner.current - 1];
-        } else {
-          if (this.infinite) {
-            this.spinner.current = this.spinner.size;
-            this.spinner.currentPath = this.images[this.spinner.current - 1];
-          }
+        } else if (this.infinite) {
+          this.spinner.current = this.spinner.size;
+          this.spinner.currentPath = this.images[this.spinner.current - 1];
         }
       }
+
+      this.lastPosition = delta;
     }
   }
 });
