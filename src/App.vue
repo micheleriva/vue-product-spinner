@@ -7,9 +7,8 @@
         :images="productImages"
         :slider="props.slider"
         :infinite="props.infinite"
-        :touchDrag="props.touchDrag"
         :mouseWheel="props.mouseWheel"
-        :mouseDrag="props.mouseDrag"
+        :animation="props.animation"
         sliderClass="demo-slider"
       >
         <PulseLoader color="#3f51b5" />
@@ -20,9 +19,8 @@
         :images="shoeImages"
         :slider="props.slider"
         :infinite="props.infinite"
-        :touchDrag="props.touchDrag"
         :mouseWheel="props.mouseWheel"
-        :mouseDrag="props.mouseDrag"
+        :animation="props.animation"
         sliderClass="demo-slider"
       >
         <PulseLoader color="#3f51b5" />
@@ -68,9 +66,8 @@ export default {
       props: {
         slider: true,
         infinite: true,
-        touchDrag: true,
         mouseWheel: true,
-        mouseDrag: true
+        animation: true,
       }
     };
   },

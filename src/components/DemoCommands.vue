@@ -18,10 +18,9 @@ export default {
     return {
       commands: [
         { name: "infinite", value: true },
-        { name: "touchDrag", value: true },
         { name: "mouseWheel", value: true },
-        { name: "mouseDrag", value: true },
-        { name: "slider", value: true }
+        { name: "slider", value: true },
+        { name: "animation", value: true }
       ]
     };
   },
