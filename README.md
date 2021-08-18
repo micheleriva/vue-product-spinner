@@ -21,7 +21,7 @@
 
 <div align="center">
   <a href="https://graphcms.com?utm_source=https://github.com/micheleriva/krabs">
-    <img src="/assets/sponsor-graphcms.svg" alt="GraphCMS" target="_blank" width="250px" />
+    <img src="/logo/sponsors/sponsor-graphcms.svg" alt="GraphCMS" target="_blank" width="250px" />
   </a>
 
   <br />
