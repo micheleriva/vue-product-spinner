@@ -17,6 +17,19 @@
   </a>
 </p>
 
+<h1 align="center"> Sponsors </h1>
+
+<div align="center">
+  <a href="https://graphcms.com?utm_source=https://github.com/micheleriva/krabs">
+    <img src="/assets/sponsor-graphcms.svg" alt="GraphCMS" target="_blank" width="250px" />
+  </a>
+
+  <br />
+  <a align="center" href="https://github.com/sponsors/micheleriva" target="_blank">
+    <b>Become a sponsor</b>
+  </a>
+</div>
+
 <h1 align="center"> Live Demo </h1>
 
 <div align="center">
